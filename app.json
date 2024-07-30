@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "ФК Кайрат",
+    "slug": "kairat2",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FECC01"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FECC01"
+      },
+      "package": "com.bogdandev3444456.kairat2"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a5dd8a0f-516f-4cda-a581-e350f4776e6a"
+      }
+    }
+  }
+}
