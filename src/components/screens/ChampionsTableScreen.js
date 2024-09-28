@@ -2,6 +2,8 @@ import { Text, TouchableOpacity, View, ScrollView } from 'react-native';
 import { Svg, Defs, ClipPath, Path } from 'react-native-svg';
 import styles from '../../styles/ChampionsStyle';
 import Navbar from '../ui/Navbar';
+import { StatusBar } from 'expo-status-bar';
+import BottomTabs from '../ui/BottomTabs';
 
 
 function ChampionsTableScreen() {
@@ -151,6 +153,8 @@ function ChampionsTableScreen() {
                     </View>
                 </View>
             </ScrollView>
+            <StatusBar translucent={true} backgroundColor='transparent'/>
+            <BottomTabs zIndex={1000} position="absolute"/>
         </View>
     )
 }

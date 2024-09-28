@@ -8,6 +8,8 @@ import i18next from '../../i18next'
 import UserIdStorage from '../../store/UserIdStore';
 import UserTokenStorage from '../../userSrorage';
 import { useIsFocused } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
+import BottomTabs from '../ui/BottomTabs';
 
 function TicketsScreen() {
     const { t } = useTranslation();
@@ -44,6 +46,8 @@ function TicketsScreen() {
                 source={{ uri: lang === 'kz' ? `https://fckairat.com/match/tiketon-modal/5153112/` : `https://fckairat.com/match/tiketon-modal/5153112/` }}
                 javaScriptEnabled={true}
             />
+            <StatusBar translucent={true} backgroundColor='transparent'/>
+            <BottomTabs zIndex={1000} position="absolute"/>
         </View>
     );
 }

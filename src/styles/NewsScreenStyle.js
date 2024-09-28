@@ -6,6 +6,12 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%'
     },
+    container: {
+        width: '100%',
+        borderWidth: 1,
+        borderColor: "#FFF",
+        marginTop: 120
+    },
     previewImage: {
         width: '100%',
         height: 460,
@@ -58,7 +64,7 @@ const styles = StyleSheet.create({
     shareContainer: {
         position: 'absolute',
         zIndex: 10000000,
-        right: -65,
+        right: -55,
         transform: [{ rotate: '90deg' }],
         flexDirection: 'row',
         display: 'flex',

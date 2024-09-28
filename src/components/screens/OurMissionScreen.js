@@ -3,11 +3,15 @@ import Navbar from '../ui/Navbar';
 import { Svg, Path, Rect, ClipPath, Defs, G } from 'react-native-svg';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useRef, useEffect } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import BottomTabs from '../ui/BottomTabs';
+import { useTranslation } from 'react-i18next';
 
 function OurMissionScreen() {
     const navigation = useNavigation();
     const route = useRoute();
     const { scrollToOffset } = route.params || {};
+    const { t } = useTranslation();
 
     useEffect(() => {
         if (scrollToOffset) {
@@ -18,8 +22,8 @@ function OurMissionScreen() {
     const scrollViewRef = useRef();
 
     return (
-        <View>
-            <Navbar activityApp='Tickets' title='ФУТБОЛЬНЫЙ КЛУБ «КАЙРАТ»'/>
+        <View style={{ width: '100%', height: '100%', backgroundColor: '#FFF' }}>
+            <Navbar activityApp='Tickets' title={t("main-title")}/>
             <ScrollView ref={scrollViewRef} style={{ backgroundColor: '#FFF', width: '100%', height: '100%', marginTop: 120 }}>
                 <Image style={{ width: '100%', height: 400 }} source={require('../../img/Group1420.png')}/>
                 <View style={{ flexDirection: 'row', alignItems: 'center', display: 'flex', padding: 24 }}>
@@ -34,13 +38,13 @@ function OurMissionScreen() {
                             </ClipPath>
                         </Defs>
                         </Svg>
-                    <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>МИССИЯ</Text>
+                    <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>{t("club-screens.mission.title").toUpperCase()}</Text>
                 </View>
                 <View style={{ justifyContent: 'center' }}>
                     <Svg xmlns="http://www.w3.org/2000/svg" width="350" height="153" viewBox="0 0 350 153" fill="none">
                         <Path d="M-373 0.000947372L350 0L262.071 152.999L-373 153V0.000947372Z" fill="#FECC01"/>
                     </Svg>
-                    <Text style={{ position: 'absolute', zIndex: 10, marginLeft: 20, width: '60%', fontSize: 12, fontFamily: 'MulishBold' }}>Быть лучшим футбольным клубом, несущим историю казахстанского футбола, создающим комплексные условия для прогресса футбола в Алматы, и имеющим эмоциональную и культурную ценность для болельщиков и общества.</Text>
+                    <Text style={{ position: 'absolute', zIndex: 10, marginLeft: 20, width: '60%', fontSize: 12, fontFamily: 'MulishBold' }}>{t("club-screens.mission.description")}</Text>
                 </View>
                 <View style={{ paddingHorizontal: 36, marginTop: 36 }}>
                     <View style={{ flexDirection: 'row', display: 'flex', justifyContent: 'space-between' }}>
@@ -55,8 +59,8 @@ function OurMissionScreen() {
                                     </ClipPath>
                                 </Defs>
                             </Svg>
-                            <Text style={{ fontFamily: 'MulishBlack', fontSize: 20, color: '#FECC01', marginTop: 10 }}>СПОРТ</Text>
-                            <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, color: '#231F20', marginTop: 10, width: 120 }}>Возродить зрелищность, дух победителей среди футболистов и болельщиков, утраченные позиции.</Text>
+                            <Text style={{ fontFamily: 'MulishBlack', fontSize: 20, color: '#FECC01', marginTop: 10 }}>{t("club-screens.sport.title").toUpperCase()}</Text>
+                            <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, color: '#231F20', marginTop: 10, width: 120 }}>{t("club-screens.sport.description")}</Text>
                         </View>
                         <View>
                             <Svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
@@ -69,8 +73,8 @@ function OurMissionScreen() {
                                     </ClipPath>
                                 </Defs>
                             </Svg>
-                            <Text style={{ fontFamily: 'MulishBlack', fontSize: 20, color: '#FECC01', marginTop: 10 }}>ОБЩЕСТВО</Text>
-                            <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, color: '#231F20', marginTop: 10, width: 120 }}>Возродить любовь и причастность к клубу со стороны болельщиков и жителей города.</Text>
+                            <Text style={{ fontFamily: 'MulishBlack', fontSize: 20, color: '#FECC01', marginTop: 10 }}>{t("club-screens.social.title").toUpperCase()}</Text>
+                            <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, color: '#231F20', marginTop: 10, width: 120 }}>{t("club-screens.social.description")}</Text>
                         </View>
                     </View>
                     <View style={{ flexDirection: 'row', display: 'flex', justifyContent: 'space-between', marginTop: 24 }}>
@@ -89,8 +93,8 @@ function OurMissionScreen() {
                                     </ClipPath>
                                 </Defs>
                             </Svg>
-                            <Text style={{ fontFamily: 'MulishBlack', fontSize: 20, color: '#FECC01', marginTop: 10 }}>БИЗНЕС</Text>
-                            <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, color: '#231F20', marginTop: 10, width: 140 }}>Изменить подходы и внедрить мировые практики ведения футбольного бизнеса, улучшить финансовое состояние клуба.</Text>
+                            <Text style={{ fontFamily: 'MulishBlack', fontSize: 20, color: '#FECC01', marginTop: 10 }}>{t("club-screens.bussines.title").toUpperCase()}</Text>
+                            <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, color: '#231F20', marginTop: 10, width: 140 }}>{t("club-screens.bussines.description")}</Text>
                         </View>
                         <View>
                             <Svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
@@ -111,8 +115,8 @@ function OurMissionScreen() {
                                     </ClipPath>
                                 </Defs>
                             </Svg>
-                            <Text style={{ fontFamily: 'MulishBlack', fontSize: 20, color: '#FECC01', marginTop: 10 }}>ПРИНЦИПЫ</Text>
-                            <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, color: '#231F20', marginTop: 10, width: 130 }}>Вести Казахстан к новым победам и приносить радость всем, кто связан с футболом.</Text>
+                            <Text style={{ fontFamily: 'MulishBlack', fontSize: 20, color: '#FECC01', marginTop: 10 }}>{t("club-screens.principles.title").toUpperCase()}</Text>
+                            <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, color: '#231F20', marginTop: 10, width: 130 }}>{t("club-screens.principles.description")}</Text>
                         </View>
                     </View>
                     <View style={{ flexDirection: 'row', display: 'flex', justifyContent: 'space-between', marginTop: 24 }}>
@@ -131,8 +135,8 @@ function OurMissionScreen() {
                                     </ClipPath>
                                 </Defs>
                             </Svg>
-                            <Text style={{ fontFamily: 'MulishBlack', fontSize: 20, color: '#FECC01', marginTop: 10 }}>ЦЕННОСТИ</Text>
-                            <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, color: '#231F20', marginTop: 10, width: 140 }}>Принципы честной борьбы, Высокие стандарты качества, Положительное футбольное окружение, Лучшие футбольные и педагогические практики, Стремление к инновациям.</Text>
+                            <Text style={{ fontFamily: 'MulishBlack', fontSize: 20, color: '#FECC01', marginTop: 10 }}>{t("club-screens.values.title").toUpperCase()}</Text>
+                            <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, color: '#231F20', marginTop: 10, width: 140 }}>{t("club-screens.values.description")}</Text>
                         </View>
                         <View>
                             <Svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41" fill="none">
@@ -148,8 +152,8 @@ function OurMissionScreen() {
                                     </ClipPath>
                                 </Defs>
                             </Svg>
-                            <Text style={{ fontFamily: 'MulishBlack', fontSize: 20, color: '#FECC01', marginTop: 10 }}>ВИДЕНИЕ</Text>
-                            <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, color: '#231F20', marginTop: 10, width: 130 }}>Доверие / Честность / Уважение Открытость / Ответственность /Доступность / Сотрудничество и взаимодействие</Text>
+                            <Text style={{ fontFamily: 'MulishBlack', fontSize: 20, color: '#FECC01', marginTop: 10 }}>{t("club-screens.point-of-view.title").toUpperCase()}</Text>
+                            <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, color: '#231F20', marginTop: 10, width: 130 }}>{t("club-screens.point-of-view.description")}</Text>
                         </View>
                     </View>
                 </View>
@@ -166,24 +170,24 @@ function OurMissionScreen() {
                                 </ClipPath>
                             </Defs>
                         </Svg>
-                        <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>ИСТОРИЯ</Text>
+                        <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>{t("club-screens.history.title").toUpperCase()}</Text>
                     </View>
                     <View style={{ paddingHorizontal: 24 }}>
-                        <Text style={{ fontSize: 16, fontFamily: 'MulishMedium' }}>ФК «Кайрат» основан в 1954 году на базе алматинского «Динамо».{'\n'}{'\n'}
+                        <Text style={{ fontSize: 16, fontFamily: 'MulishMedium' }}>{t("club-screens.history.description-one")}{'\n'}{'\n'}
 
-                        Согласно постановлениям президиума ВЦСПС СССР (от 27.04.56, В. Гришин) и Совета Министров КазССР (от 01.06.56, Д. Кунаев), в результате объединения ДСО «Урожай» с «Колхозшы», 18 июня 1956г. было образовано новое Добровольное Сельское Спортивное Общество (ДССО) КазССР. Имя ему дали - «Кайрат». С июля футбольная команда Класса «Б» - «Урожай» (Алма-Ата) переименована в «Кайрат».
+                        {t("club-screens.history.description-two")}
                         </Text>
                         <Image style={{ width: '100%', marginTop: 20 }} source={require('../../img/history1.png')}/>
                         <View style={{ alignItems: 'flex-end', width: '100%', paddingVertical: 14 }}>
-                            <Text style={{ fontSize: 16, fontFamily: 'MulishMedium' }}>Первый состав команды</Text>
+                            <Text style={{ fontSize: 16, fontFamily: 'MulishMedium' }}>{t("club-screens.first")}</Text>
                         </View>
                         <View style={{ width: '100%', backgroundColor: '#F3F3F3', marginTop: 12, padding: 23}}>
-                            <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20 }}>Любопытные факты:</Text>
-                            <Text style={{ fontSize: 16, marginTop: 24, fontFamily: 'MulishRegular' }}>• Постановление президиума Всесоюзного Центрального Совета Профессиональных Союзов (ВЦСПС) Протокол №6 п.15 от 27 апреля 1956 г. - об объединении добровольного спортивного общества «Урожай» с республиканскими спортивными обществами колхозников. </Text>
-                            <Text style={{ fontSize: 16, marginTop: 24, fontFamily: 'MulishRegular' }}>• Постановление Совета министров КазССР от 01 июня 1956г. за №299 об объединении СО «Урожай» со СО «Колхозшы» в единое сельское спортивное общество. Председатель СовМина КазССР – Д.Кунаев. 18 июня 1956г. Из протокола №1 объединенного пленума Республиканских Советов ДСО «Урожай» и «Колхозшы» КазССР …поступило предложение назвать ДССО КазССР – «Кайрат». </Text>
-                            <Text style={{ fontSize: 16, marginTop: 24, fontFamily: 'MulishRegular' }}>• Весь июнь 56-го команда провела на выезде, поочередно сыграв в Воронеже (2-го), Сталинграде (6-го), Тбилиси (11-го), Ереване (15-го), Краснодаре (22-го) и Ростове (26-го). </Text>
-                            <Text style={{ fontSize: 16, marginTop: 24, fontFamily: 'MulishRegular' }}>• Впервые же под именем «Кайрат», команда вышла в родных стенах, ровно через месяц после пленума – 18 июля на матч со сталинабадским «Колхозчи» (3:0).</Text>
-                            <Text style={{ fontSize: 16, marginTop: 24, fontFamily: 'MulishRegular' }}>• С 1954 по 1991 годы выступал в чемпионате СССР, из них 24 сезона в Высшей лиге. В 1986 году занял рекордное для себя место в чемпионате СССР — седьмое. </Text>
+                            <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20 }}>{t("club-screens.facts.title")}</Text>
+                            <Text style={{ fontSize: 16, marginTop: 24, fontFamily: 'MulishRegular' }}>{t("club-screens.facts.one")}</Text>
+                            <Text style={{ fontSize: 16, marginTop: 24, fontFamily: 'MulishRegular' }}>{t("club-screens.facts.two")}</Text>
+                            <Text style={{ fontSize: 16, marginTop: 24, fontFamily: 'MulishRegular' }}>{t("club-screens.facts.three")}</Text>
+                            <Text style={{ fontSize: 16, marginTop: 24, fontFamily: 'MulishRegular' }}>{t("club-screens.facts.four")}</Text>
+                            <Text style={{ fontSize: 16, marginTop: 24, fontFamily: 'MulishRegular' }}>{t("club-screens.facts.five")}</Text>
                         </View>
                     </View>
                 </View>
@@ -193,39 +197,39 @@ function OurMissionScreen() {
                     </View>
                     <View style={{ paddingHorizontal: 24 }}>
                         <Text style={{ fontSize: 16, fontFamily: 'MulishMedium' }}>
-                            «Кайратовский бетон» — так называлась в советской прессе и в среде болельщиков оборона «Кайрата». В сезоне 1960 г. специалисты футбола много полемизировали по поводу тактической схемы игры «Кайрата».{'\n'}{'\n'}
+                            {t("club-screens.kairat-concrete.one")}{'\n'}{'\n'}
 
-                            Алматинцы, ведомые принявшим команду накануне первенства Н. Я. Глебовым, использовали построение 1+4+2+4 — так называемую бразильскую систему, в то время как большинство других клубов по-прежнему играло по апробированной системе «дубль-ве». {'\n'}{'\n'}
+                            {t("club-screens.kairat-concrete.two")}{'\n'}{'\n'}
 
-                            Случалось, что «Кайрат» прибегал и к системе 1+3+3+4. Но в любом случае футбольные специалисты замечали что у алматинцев прослеживается оборонительная тенденция, так как команда использовала на одного форварда меньше чем другие.{'\n'}{'\n'}
+                            {t("club-screens.kairat-concrete.three")}{'\n'}{'\n'}
                         </Text>
                         <Image style={{ width: '100%', marginTop: 20 }} source={require('../../img/history2.png')}/>
                         <View style={{ alignItems: 'flex-end', width: '100%', paddingVertical: 14 }}>
-                            <Text style={{ fontSize: 16, fontFamily: 'MulishMedium' }}>Полузащитник команды Фамилия Имя (год)</Text>
+                            <Text style={{ fontSize: 16, fontFamily: 'MulishMedium' }}>{t("club-screens.kairat-concrete.second")}</Text>
                         </View>
                         <Text style={{ fontSize: 16, fontFamily: 'MulishMedium', marginTop: 12 }}>
-                            В это самое время в советской прессе, а также в среде болельщиков и появился термин «Кайратовский бетон». Журнал «Смена» в 1979 г. после игры ленинградского «Зенита» и алматинского «Кайрата» озаглавила статью, посвящённую этому матчу словами: «И „бетон" дал трещину…»
+                            {t("club-screens.kairat-concrete.four")}
                         </Text>
                     </View>
                 </View>
                 <View style={{ width: '100%', marginTop: 24 }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center', display: 'flex', padding: 24 }}>
-                        <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>Среднеазиатское дерби</Text>
+                        <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>{t("club-screens.asia.title")}</Text>
                     </View>
                     <View style={{ paddingHorizontal: 24 }}>
                         <Text style={{ fontSize: 16, fontFamily: 'MulishMedium' }}>                     
-                            Соперничество «Кайрата» и ташкентского «Пахтакора» в чемпионатах СССР.{'\n'}{'\n'}
+                            {t("club-screens.asia.one")}{'\n'}{'\n'}
 
-                            Среднеазиатское дерби было основным спортивным событием года, его в обязательном порядке посещало высшее руководство республик. Оно было частью более общего противостояния на всех уровнях, возникшего в середине XX века, между Казахстаном и Узбекистаном{'\n'}{'\n'}
+                            {t("club-screens.asia.two")}{'\n'}{'\n'}
                         </Text>
                         <Image style={{ width: '100%', marginTop: 20 }} source={require('../../img/history3.png')}/>
                         <View style={{ alignItems: 'flex-end', width: '100%', paddingVertical: 14 }}>
-                            <Text style={{ fontSize: 16, fontFamily: 'MulishMedium' }}>Состав команды 1964г.</Text>
+                            <Text style={{ fontSize: 16, fontFamily: 'MulishMedium' }}>{t("club-screens.asia.first")}</Text>
                         </View>
                         <Text style={{ fontSize: 16, fontFamily: 'MulishMedium', marginTop: 12 }}>
-                            Считалось, что эти две советские республики доминируют в азиатской части Советского Союза, и отношения между ними являются важнейшим элементом политики Москвы в центральноазиатском регионе. Отсюда следовала четкая иерархия представительства двух республик в партийной номенклатуре СССР, — лидер Казахстана, как правило, был членом Политбюро ЦК КПСС, а лидер Узбекистана — кандидатом в члены Политбюро.{'\n'}{'\n'}              
+                            {t("club-screens.asia.three")}{'\n'}{'\n'}              
 
-                            Достаточно вспомнить хотя бы таких известных в советское время деятелей, как первый секретарь ЦК компартии Казахстана Динмухаммед Кунаев и первый секретарь ЦК компартии Узбекистана Шараф Рашидов. Тогда соперничество выражалось, в стремлении выставить именно свою республику в качестве самой передовой и успешной. Одним из самых эффективных способов достижения этой цели были взаимные интриги и любимая игра двух первых руководителей союзных республик.{'\n'}{'\n'}        
+                            {t("club-screens.asia.four")}{'\n'}{'\n'}        
                         </Text>
                     </View>
                 </View>
@@ -233,19 +237,17 @@ function OurMissionScreen() {
                     <View>
                         <View style={{ flexDirection: 'row', alignItems: 'center', display: 'flex' }}>
                             <Image source={require('../../img/Ellipse33.png')}/>
-                            <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 16, width: 300, marginLeft: 10 }}>Сергей Страшненко бывший футболист «Пахтакора»:</Text>
+                            <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 16, width: 300, marginLeft: 10 }}>{t("club-screens.bio.first-name")}</Text>
                         </View>
-                        <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, marginTop: 18 }}>- Зарплаты были на уровне других команд высшей лиги — 250 рублей ставка, плюс за звание мастера спорта мне давали еще 10 рублей. Правда, давали и солидные премиальные. Одна игра у нас считалась межпланетной. Было у "Пахтакора" соперничество с алматинским "Кайратом", сродни дерби киевского "Динамо" и "Спартака". И вот после одной из побед над "Кайратом" нам прямо в раздевалку принесли в конвертах двойную зарплату — 500 рублей.</Text>
+                        <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, marginTop: 18 }}>{t("club-screens.bio.first-title")}</Text>
                     </View>
                     <View style={{ marginTop: 24 }}>
                         <View style={{ flexDirection: 'row', alignItems: 'center', display: 'flex' }}>
                             <Image source={require('../../img/Ellipse32.png')}/>
-                            <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 16, width: 300, marginLeft: 10 }}>Известный футболист и тренер «Кайрата» Тимур Санжарович Сегизбаев:</Text>
+                            <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 16, width: 300, marginLeft: 10 }}>{t("club-screens.bio.second-name")}</Text>
                         </View>
                         <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, marginTop: 18 }}>
-                            - «Кайрат» – «Пахтакор»! «Пахтакор» – «Кайрат»!{'\n'}{'\n'}
-
-                            Как это громко и призывно звучало для болельщиков 60-х, 70-х и 80-х годов прошлого столетия. Полные арены в Алма-Ате и Ташкенте, вереницы машин с «чужими» номерами и настоящие битвы мастеров. Настраивать на такие матчи нас не надо было. Такие игры тогда именовались "международными".{'\n'}{'\n'}
+                            {t("club-screens.bio.second-title")}{'\n'}{'\n'}
                         </Text>
                     </View>
                 </View>
@@ -261,9 +263,9 @@ function OurMissionScreen() {
                             </ClipPath>
                         </Defs>
                     </Svg>
-                    <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>ДОСТИЖЕНИЯ</Text>
+                    <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>{t("club-screens.achievements.title").toUpperCase()}</Text>
                 </View>
-                <View style={{ backgroundColor: '#FECC01', width: '100%', padding: 16, marginBottom: 120 }}>
+                <View style={{ backgroundColor: '#FECC01', width: '100%', padding: 16, marginBottom: 100 }}>
                     <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', borderBottomWidth: 3, paddingBottom: 12, marginBottom: 16 }}>
                         <View style={{ width: 40, height: 40, justifyContent: 'center', alignItems: 'center' }}>
                             <Svg xmlns="http://www.w3.org/2000/svg" width="35" height="39" viewBox="0 0 35 39" fill="none">
@@ -272,8 +274,20 @@ function OurMissionScreen() {
                             <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>3</Text>
                         </View>
                         <View style={{ marginLeft: 6 }}>
-                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>Чемпионат Казахстана</Text>
+                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>{t("club-screens.achievements.one")}</Text>
                             <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>1992, 2004, 2020</Text>
+                        </View>
+                    </View>
+                    <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', borderBottomWidth: 3, paddingBottom: 12, marginBottom: 16 }}>
+                        <View style={{ width: 40, height: 40, justifyContent: 'center', alignItems: 'center' }}>
+                            <Svg xmlns="http://www.w3.org/2000/svg" width="35" height="39" viewBox="0 0 35 39" fill="none">
+                                <Path d="M33.8274 7.34297H31.6144L18.0617 0.139395C17.7115 -0.0464648 17.2885 -0.0464648 16.9383 0.139395L3.38563 7.34297H1.17258C0.525317 7.34297 0 7.85484 0 8.48555C0 9.11625 0.525317 9.62813 1.17258 9.62813H2.51167V30.5145C2.51167 30.9326 2.74619 31.3173 3.12298 31.5176L16.9383 38.8606C17.1134 38.9535 17.3065 39 17.4996 39C17.6927 39 17.8858 38.9535 18.0609 38.8606L31.8762 31.5176C32.253 31.3173 32.4875 30.9326 32.4875 30.5145V9.62813H33.8266C34.4739 9.62813 34.9992 9.11625 34.9992 8.48555C34.9992 7.85484 34.4747 7.34297 33.8266 7.34297H33.8274ZM17.5004 2.44436L26.7177 7.34297H8.28312L17.5004 2.44436ZM30.1432 29.8365L17.5004 36.5564L4.85761 29.8365V9.62813H30.1439V29.8365H30.1432Z" fill="black"/>
+                            </Svg>
+                            <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>1</Text>
+                        </View>
+                        <View style={{ marginLeft: 6 }}>
+                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>{t("club-screens.achievements.two")}</Text>
+                            <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>2009</Text>
                         </View>
                     </View>
                     <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', borderBottomWidth: 3, paddingBottom: 12, marginBottom: 16 }}>
@@ -284,8 +298,20 @@ function OurMissionScreen() {
                             <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>5</Text>
                         </View>
                         <View style={{ marginLeft: 6 }}>
-                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>Серебряный призер чемпионата Казахстана</Text>
+                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>{t("club-screens.achievements.three")}</Text>
                             <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>2015, 2016, 2017, 2018, 2019</Text>
+                        </View>
+                    </View>
+                    <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', borderBottomWidth: 3, paddingBottom: 12, marginBottom: 16 }}>
+                        <View style={{ width: 40, height: 40, justifyContent: 'center', alignItems: 'center' }}>
+                            <Svg xmlns="http://www.w3.org/2000/svg" width="35" height="39" viewBox="0 0 35 39" fill="none">
+                                <Path d="M33.8274 7.34297H31.6144L18.0617 0.139395C17.7115 -0.0464648 17.2885 -0.0464648 16.9383 0.139395L3.38563 7.34297H1.17258C0.525317 7.34297 0 7.85484 0 8.48555C0 9.11625 0.525317 9.62813 1.17258 9.62813H2.51167V30.5145C2.51167 30.9326 2.74619 31.3173 3.12298 31.5176L16.9383 38.8606C17.1134 38.9535 17.3065 39 17.4996 39C17.6927 39 17.8858 38.9535 18.0609 38.8606L31.8762 31.5176C32.253 31.3173 32.4875 30.9326 32.4875 30.5145V9.62813H33.8266C34.4739 9.62813 34.9992 9.11625 34.9992 8.48555C34.9992 7.85484 34.4747 7.34297 33.8266 7.34297H33.8274ZM17.5004 2.44436L26.7177 7.34297H8.28312L17.5004 2.44436ZM30.1432 29.8365L17.5004 36.5564L4.85761 29.8365V9.62813H30.1439V29.8365H30.1432Z" fill="black"/>
+                            </Svg>
+                            <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>1</Text>
+                        </View>
+                        <View style={{ marginLeft: 6 }}>
+                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>{t("club-screens.achievements.four")}</Text>
+                            <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>1998</Text>
                         </View>
                     </View>
                     <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', borderBottomWidth: 3, paddingBottom: 12, marginBottom: 16 }}>
@@ -296,7 +322,7 @@ function OurMissionScreen() {
                             <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>6</Text>
                         </View>
                         <View style={{ marginLeft: 6 }}>
-                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>Бронзовый призёр чемпионата Казахстана</Text>
+                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>{t("club-screens.achievements.five")}</Text>
                             <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>1997, 1999, 2005, 2013, 2014, 2021</Text>
                         </View>
                     </View>
@@ -305,83 +331,10 @@ function OurMissionScreen() {
                             <Svg xmlns="http://www.w3.org/2000/svg" width="35" height="39" viewBox="0 0 35 39" fill="none">
                                 <Path d="M33.8274 7.34297H31.6144L18.0617 0.139395C17.7115 -0.0464648 17.2885 -0.0464648 16.9383 0.139395L3.38563 7.34297H1.17258C0.525317 7.34297 0 7.85484 0 8.48555C0 9.11625 0.525317 9.62813 1.17258 9.62813H2.51167V30.5145C2.51167 30.9326 2.74619 31.3173 3.12298 31.5176L16.9383 38.8606C17.1134 38.9535 17.3065 39 17.4996 39C17.6927 39 17.8858 38.9535 18.0609 38.8606L31.8762 31.5176C32.253 31.3173 32.4875 30.9326 32.4875 30.5145V9.62813H33.8266C34.4739 9.62813 34.9992 9.11625 34.9992 8.48555C34.9992 7.85484 34.4747 7.34297 33.8266 7.34297H33.8274ZM17.5004 2.44436L26.7177 7.34297H8.28312L17.5004 2.44436ZM30.1432 29.8365L17.5004 36.5564L4.85761 29.8365V9.62813H30.1439V29.8365H30.1432Z" fill="black"/>
                             </Svg>
-                            <Image style={{ width: 70, height: 70, position: 'absolute', zIndex: -10 }} source={require('../../img/Star.png')}/>
-                            <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>10</Text>
-                        </View>
-                        <View style={{ marginLeft: 6 }}>
-                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>Обладатель Кубка Казахстана<Text style={{ fontFamily: 'MulishBlack' }}> / 10 - РЕКОРД</Text></Text>
-                            <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>1997, 1999, 2005, 2013, 2014, 2021</Text>
-                        </View>
-                    </View>
-                    <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', borderBottomWidth: 3, paddingBottom: 12, marginBottom: 16 }}>
-                        <View style={{ width: 40, height: 40, justifyContent: 'center', alignItems: 'center' }}>
-                            <Svg xmlns="http://www.w3.org/2000/svg" width="35" height="39" viewBox="0 0 35 39" fill="none">
-                                <Path d="M33.8274 7.34297H31.6144L18.0617 0.139395C17.7115 -0.0464648 17.2885 -0.0464648 16.9383 0.139395L3.38563 7.34297H1.17258C0.525317 7.34297 0 7.85484 0 8.48555C0 9.11625 0.525317 9.62813 1.17258 9.62813H2.51167V30.5145C2.51167 30.9326 2.74619 31.3173 3.12298 31.5176L16.9383 38.8606C17.1134 38.9535 17.3065 39 17.4996 39C17.6927 39 17.8858 38.9535 18.0609 38.8606L31.8762 31.5176C32.253 31.3173 32.4875 30.9326 32.4875 30.5145V9.62813H33.8266C34.4739 9.62813 34.9992 9.11625 34.9992 8.48555C34.9992 7.85484 34.4747 7.34297 33.8266 7.34297H33.8274ZM17.5004 2.44436L26.7177 7.34297H8.28312L17.5004 2.44436ZM30.1432 29.8365L17.5004 36.5564L4.85761 29.8365V9.62813H30.1439V29.8365H30.1432Z" fill="black"/>
-                            </Svg>
-                            <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>2</Text>
-                        </View>
-                        <View style={{ marginLeft: 6 }}>
-                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>Финалист Кубка Казахстана</Text>
-                            <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>2004, 2005</Text>
-                        </View>
-                    </View>
-                    <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', borderBottomWidth: 3, paddingBottom: 12, marginBottom: 16 }}>
-                        <View style={{ width: 40, height: 40, justifyContent: 'center', alignItems: 'center' }}>
-                            <Svg xmlns="http://www.w3.org/2000/svg" width="35" height="39" viewBox="0 0 35 39" fill="none">
-                                <Path d="M33.8274 7.34297H31.6144L18.0617 0.139395C17.7115 -0.0464648 17.2885 -0.0464648 16.9383 0.139395L3.38563 7.34297H1.17258C0.525317 7.34297 0 7.85484 0 8.48555C0 9.11625 0.525317 9.62813 1.17258 9.62813H2.51167V30.5145C2.51167 30.9326 2.74619 31.3173 3.12298 31.5176L16.9383 38.8606C17.1134 38.9535 17.3065 39 17.4996 39C17.6927 39 17.8858 38.9535 18.0609 38.8606L31.8762 31.5176C32.253 31.3173 32.4875 30.9326 32.4875 30.5145V9.62813H33.8266C34.4739 9.62813 34.9992 9.11625 34.9992 8.48555C34.9992 7.85484 34.4747 7.34297 33.8266 7.34297H33.8274ZM17.5004 2.44436L26.7177 7.34297H8.28312L17.5004 2.44436ZM30.1432 29.8365L17.5004 36.5564L4.85761 29.8365V9.62813H30.1439V29.8365H30.1432Z" fill="black"/>
-                            </Svg>
-                            <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>2</Text>
-                        </View>
-                        <View style={{ marginLeft: 6 }}>
-                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>Финалист Кубка Казахстана</Text>
-                            <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>2004, 2005</Text>
-                        </View>
-                    </View>
-                    <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', borderBottomWidth: 3, paddingBottom: 12, marginBottom: 16 }}>
-                        <View style={{ width: 40, height: 40, justifyContent: 'center', alignItems: 'center' }}>
-                            <Svg xmlns="http://www.w3.org/2000/svg" width="35" height="39" viewBox="0 0 35 39" fill="none">
-                                <Path d="M33.8274 7.34297H31.6144L18.0617 0.139395C17.7115 -0.0464648 17.2885 -0.0464648 16.9383 0.139395L3.38563 7.34297H1.17258C0.525317 7.34297 0 7.85484 0 8.48555C0 9.11625 0.525317 9.62813 1.17258 9.62813H2.51167V30.5145C2.51167 30.9326 2.74619 31.3173 3.12298 31.5176L16.9383 38.8606C17.1134 38.9535 17.3065 39 17.4996 39C17.6927 39 17.8858 38.9535 18.0609 38.8606L31.8762 31.5176C32.253 31.3173 32.4875 30.9326 32.4875 30.5145V9.62813H33.8266C34.4739 9.62813 34.9992 9.11625 34.9992 8.48555C34.9992 7.85484 34.4747 7.34297 33.8266 7.34297H33.8274ZM17.5004 2.44436L26.7177 7.34297H8.28312L17.5004 2.44436ZM30.1432 29.8365L17.5004 36.5564L4.85761 29.8365V9.62813H30.1439V29.8365H30.1432Z" fill="black"/>
-                            </Svg>
-                            <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>2</Text>
-                        </View>
-                        <View style={{ marginLeft: 6 }}>
-                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>Обладатель Суперкубка Казахстана</Text>
-                            <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>2016, 2017</Text>
-                        </View>
-                    </View>
-                    <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', borderBottomWidth: 3, paddingBottom: 12, marginBottom: 16 }}>
-                        <View style={{ width: 40, height: 40, justifyContent: 'center', alignItems: 'center' }}>
-                            <Svg xmlns="http://www.w3.org/2000/svg" width="35" height="39" viewBox="0 0 35 39" fill="none">
-                                <Path d="M33.8274 7.34297H31.6144L18.0617 0.139395C17.7115 -0.0464648 17.2885 -0.0464648 16.9383 0.139395L3.38563 7.34297H1.17258C0.525317 7.34297 0 7.85484 0 8.48555C0 9.11625 0.525317 9.62813 1.17258 9.62813H2.51167V30.5145C2.51167 30.9326 2.74619 31.3173 3.12298 31.5176L16.9383 38.8606C17.1134 38.9535 17.3065 39 17.4996 39C17.6927 39 17.8858 38.9535 18.0609 38.8606L31.8762 31.5176C32.253 31.3173 32.4875 30.9326 32.4875 30.5145V9.62813H33.8266C34.4739 9.62813 34.9992 9.11625 34.9992 8.48555C34.9992 7.85484 34.4747 7.34297 33.8266 7.34297H33.8274ZM17.5004 2.44436L26.7177 7.34297H8.28312L17.5004 2.44436ZM30.1432 29.8365L17.5004 36.5564L4.85761 29.8365V9.62813H30.1439V29.8365H30.1432Z" fill="black"/>
-                            </Svg>
                             <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>1</Text>
                         </View>
                         <View style={{ marginLeft: 6 }}>
-                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>Победитель Первой лиги Казахстана</Text>
-                            <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>2009</Text>
-                        </View>
-                    </View>
-                    <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', borderBottomWidth: 3, paddingBottom: 12, marginBottom: 16 }}>
-                        <View style={{ width: 40, height: 40, justifyContent: 'center', alignItems: 'center' }}>
-                            <Svg xmlns="http://www.w3.org/2000/svg" width="35" height="39" viewBox="0 0 35 39" fill="none">
-                                <Path d="M33.8274 7.34297H31.6144L18.0617 0.139395C17.7115 -0.0464648 17.2885 -0.0464648 16.9383 0.139395L3.38563 7.34297H1.17258C0.525317 7.34297 0 7.85484 0 8.48555C0 9.11625 0.525317 9.62813 1.17258 9.62813H2.51167V30.5145C2.51167 30.9326 2.74619 31.3173 3.12298 31.5176L16.9383 38.8606C17.1134 38.9535 17.3065 39 17.4996 39C17.6927 39 17.8858 38.9535 18.0609 38.8606L31.8762 31.5176C32.253 31.3173 32.4875 30.9326 32.4875 30.5145V9.62813H33.8266C34.4739 9.62813 34.9992 9.11625 34.9992 8.48555C34.9992 7.85484 34.4747 7.34297 33.8266 7.34297H33.8274ZM17.5004 2.44436L26.7177 7.34297H8.28312L17.5004 2.44436ZM30.1432 29.8365L17.5004 36.5564L4.85761 29.8365V9.62813H30.1439V29.8365H30.1432Z" fill="black"/>
-                            </Svg>
-                            <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>1</Text>
-                        </View>
-                        <View style={{ marginLeft: 6 }}>
-                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>Серебряный призер Первой лиги Казахстана</Text>
-                            <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>1998</Text>
-                        </View>
-                    </View>
-                    <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', borderBottomWidth: 3, paddingBottom: 12, marginBottom: 16 }}>
-                        <View style={{ width: 40, height: 40, justifyContent: 'center', alignItems: 'center' }}>
-                            <Svg xmlns="http://www.w3.org/2000/svg" width="35" height="39" viewBox="0 0 35 39" fill="none">
-                                <Path d="M33.8274 7.34297H31.6144L18.0617 0.139395C17.7115 -0.0464648 17.2885 -0.0464648 16.9383 0.139395L3.38563 7.34297H1.17258C0.525317 7.34297 0 7.85484 0 8.48555C0 9.11625 0.525317 9.62813 1.17258 9.62813H2.51167V30.5145C2.51167 30.9326 2.74619 31.3173 3.12298 31.5176L16.9383 38.8606C17.1134 38.9535 17.3065 39 17.4996 39C17.6927 39 17.8858 38.9535 18.0609 38.8606L31.8762 31.5176C32.253 31.3173 32.4875 30.9326 32.4875 30.5145V9.62813H33.8266C34.4739 9.62813 34.9992 9.11625 34.9992 8.48555C34.9992 7.85484 34.4747 7.34297 33.8266 7.34297H33.8274ZM17.5004 2.44436L26.7177 7.34297H8.28312L17.5004 2.44436ZM30.1432 29.8365L17.5004 36.5564L4.85761 29.8365V9.62813H30.1439V29.8365H30.1432Z" fill="black"/>
-                            </Svg>
-                            <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>1</Text>
-                        </View>
-                        <View style={{ marginLeft: 6 }}>
-                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>Обладатель Кубка Федерации футбола СССР</Text>
+                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>{t("club-screens.achievements.six")}</Text>
                             <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>1988</Text>
                         </View>
                     </View>
@@ -390,10 +343,22 @@ function OurMissionScreen() {
                             <Svg xmlns="http://www.w3.org/2000/svg" width="35" height="39" viewBox="0 0 35 39" fill="none">
                                 <Path d="M33.8274 7.34297H31.6144L18.0617 0.139395C17.7115 -0.0464648 17.2885 -0.0464648 16.9383 0.139395L3.38563 7.34297H1.17258C0.525317 7.34297 0 7.85484 0 8.48555C0 9.11625 0.525317 9.62813 1.17258 9.62813H2.51167V30.5145C2.51167 30.9326 2.74619 31.3173 3.12298 31.5176L16.9383 38.8606C17.1134 38.9535 17.3065 39 17.4996 39C17.6927 39 17.8858 38.9535 18.0609 38.8606L31.8762 31.5176C32.253 31.3173 32.4875 30.9326 32.4875 30.5145V9.62813H33.8266C34.4739 9.62813 34.9992 9.11625 34.9992 8.48555C34.9992 7.85484 34.4747 7.34297 33.8266 7.34297H33.8274ZM17.5004 2.44436L26.7177 7.34297H8.28312L17.5004 2.44436ZM30.1432 29.8365L17.5004 36.5564L4.85761 29.8365V9.62813H30.1439V29.8365H30.1432Z" fill="black"/>
                             </Svg>
+                            <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>10</Text>
+                        </View>
+                        <View style={{ marginLeft: 6 }}>
+                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>{t("club-screens.achievements.seven")}</Text>
+                            <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>1992, 1996/97, 1999/00, 2001, 2003, 2014/15,{`\n`} 2017/18, 2021</Text>
+                        </View>
+                    </View>
+                    <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', borderBottomWidth: 3, paddingBottom: 12, marginBottom: 16 }}>
+                        <View style={{ width: 40, height: 40, justifyContent: 'center', alignItems: 'center' }}>
+                            <Svg xmlns="http://www.w3.org/2000/svg" width="35" height="39" viewBox="0 0 35 39" fill="none">
+                                <Path d="M33.8274 7.34297H31.6144L18.0617 0.139395C17.7115 -0.0464648 17.2885 -0.0464648 16.9383 0.139395L3.38563 7.34297H1.17258C0.525317 7.34297 0 7.85484 0 8.48555C0 9.11625 0.525317 9.62813 1.17258 9.62813H2.51167V30.5145C2.51167 30.9326 2.74619 31.3173 3.12298 31.5176L16.9383 38.8606C17.1134 38.9535 17.3065 39 17.4996 39C17.6927 39 17.8858 38.9535 18.0609 38.8606L31.8762 31.5176C32.253 31.3173 32.4875 30.9326 32.4875 30.5145V9.62813H33.8266C34.4739 9.62813 34.9992 9.11625 34.9992 8.48555C34.9992 7.85484 34.4747 7.34297 33.8266 7.34297H33.8274ZM17.5004 2.44436L26.7177 7.34297H8.28312L17.5004 2.44436ZM30.1432 29.8365L17.5004 36.5564L4.85761 29.8365V9.62813H30.1439V29.8365H30.1432Z" fill="black"/>
+                            </Svg>
                             <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>2</Text>
                         </View>
                         <View style={{ marginLeft: 6 }}>
-                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>Победитель Первой лиги СССР</Text>
+                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>{t("club-screens.achievements.eigth")}</Text>
                             <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>1976, 1983</Text>
                         </View>
                     </View>
@@ -405,8 +370,32 @@ function OurMissionScreen() {
                             <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>2</Text>
                         </View>
                         <View style={{ marginLeft: 6 }}>
-                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>Серебряный призер Первой лиги СССР</Text>
+                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>{t("club-screens.achievements.nine")}</Text>
+                            <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>2004, 2005</Text>
+                        </View>
+                    </View>
+                    <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', borderBottomWidth: 3, paddingBottom: 12, marginBottom: 16 }}>
+                        <View style={{ width: 40, height: 40, justifyContent: 'center', alignItems: 'center' }}>
+                            <Svg xmlns="http://www.w3.org/2000/svg" width="35" height="39" viewBox="0 0 35 39" fill="none">
+                                <Path d="M33.8274 7.34297H31.6144L18.0617 0.139395C17.7115 -0.0464648 17.2885 -0.0464648 16.9383 0.139395L3.38563 7.34297H1.17258C0.525317 7.34297 0 7.85484 0 8.48555C0 9.11625 0.525317 9.62813 1.17258 9.62813H2.51167V30.5145C2.51167 30.9326 2.74619 31.3173 3.12298 31.5176L16.9383 38.8606C17.1134 38.9535 17.3065 39 17.4996 39C17.6927 39 17.8858 38.9535 18.0609 38.8606L31.8762 31.5176C32.253 31.3173 32.4875 30.9326 32.4875 30.5145V9.62813H33.8266C34.4739 9.62813 34.9992 9.11625 34.9992 8.48555C34.9992 7.85484 34.4747 7.34297 33.8266 7.34297H33.8274ZM17.5004 2.44436L26.7177 7.34297H8.28312L17.5004 2.44436ZM30.1432 29.8365L17.5004 36.5564L4.85761 29.8365V9.62813H30.1439V29.8365H30.1432Z" fill="black"/>
+                            </Svg>
+                            <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>2</Text>
+                        </View>
+                        <View style={{ marginLeft: 6 }}>
+                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>{t("club-screens.achievements.ten")}</Text>
                             <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>1965, 1970</Text>
+                        </View>
+                    </View>
+                    <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', borderBottomWidth: 3, paddingBottom: 12, marginBottom: 16 }}>
+                        <View style={{ width: 40, height: 40, justifyContent: 'center', alignItems: 'center' }}>
+                            <Svg xmlns="http://www.w3.org/2000/svg" width="35" height="39" viewBox="0 0 35 39" fill="none">
+                                <Path d="M33.8274 7.34297H31.6144L18.0617 0.139395C17.7115 -0.0464648 17.2885 -0.0464648 16.9383 0.139395L3.38563 7.34297H1.17258C0.525317 7.34297 0 7.85484 0 8.48555C0 9.11625 0.525317 9.62813 1.17258 9.62813H2.51167V30.5145C2.51167 30.9326 2.74619 31.3173 3.12298 31.5176L16.9383 38.8606C17.1134 38.9535 17.3065 39 17.4996 39C17.6927 39 17.8858 38.9535 18.0609 38.8606L31.8762 31.5176C32.253 31.3173 32.4875 30.9326 32.4875 30.5145V9.62813H33.8266C34.4739 9.62813 34.9992 9.11625 34.9992 8.48555C34.9992 7.85484 34.4747 7.34297 33.8266 7.34297H33.8274ZM17.5004 2.44436L26.7177 7.34297H8.28312L17.5004 2.44436ZM30.1432 29.8365L17.5004 36.5564L4.85761 29.8365V9.62813H30.1439V29.8365H30.1432Z" fill="black"/>
+                            </Svg>
+                            <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>2</Text>
+                        </View>
+                        <View style={{ marginLeft: 6 }}>
+                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>{t("club-screens.achievements.eleven")}</Text>
+                            <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>2016, 2017</Text>
                         </View>
                     </View>
                     <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', borderBottomWidth: 3, paddingBottom: 12, marginBottom: 16 }}>
@@ -417,13 +406,26 @@ function OurMissionScreen() {
                             <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>1</Text>
                         </View>
                         <View style={{ marginLeft: 6 }}>
-                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>Бронзовый призер Первой лиги СССР</Text>
+                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>{t("club-screens.achievements.twenten")}</Text>
                             <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>1989</Text>
                         </View>
                     </View>
-                    <Image style={{ position: 'absolute', zIndex: -10, bottom: 0, right: 0 }} source={require('../../img/Group24.png')}/>
+                    <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center', borderBottomWidth: 3, paddingBottom: 12, marginBottom: 16 }}>
+                        <View style={{ width: 40, height: 40, justifyContent: 'center', alignItems: 'center' }}>
+                            <Svg xmlns="http://www.w3.org/2000/svg" width="35" height="39" viewBox="0 0 35 39" fill="none">
+                                <Path d="M33.8274 7.34297H31.6144L18.0617 0.139395C17.7115 -0.0464648 17.2885 -0.0464648 16.9383 0.139395L3.38563 7.34297H1.17258C0.525317 7.34297 0 7.85484 0 8.48555C0 9.11625 0.525317 9.62813 1.17258 9.62813H2.51167V30.5145C2.51167 30.9326 2.74619 31.3173 3.12298 31.5176L16.9383 38.8606C17.1134 38.9535 17.3065 39 17.4996 39C17.6927 39 17.8858 38.9535 18.0609 38.8606L31.8762 31.5176C32.253 31.3173 32.4875 30.9326 32.4875 30.5145V9.62813H33.8266C34.4739 9.62813 34.9992 9.11625 34.9992 8.48555C34.9992 7.85484 34.4747 7.34297 33.8266 7.34297H33.8274ZM17.5004 2.44436L26.7177 7.34297H8.28312L17.5004 2.44436ZM30.1432 29.8365L17.5004 36.5564L4.85761 29.8365V9.62813H30.1439V29.8365H30.1432Z" fill="black"/>
+                            </Svg>
+                            <Text style={{ position: 'absolute', zIndex: 10, fontSize: 16, fontFamily: 'MulishExtraBold' }}>1</Text>
+                        </View>
+                        <View style={{ marginLeft: 6 }}>
+                            <Text style={{ fontFamily: 'MulishBold', fontSize: 16, width: '60%' }}>{t("club-screens.achievements.theerten")}</Text>
+                            <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>1969/71</Text>
+                        </View>
+                    </View>
                 </View>
             </ScrollView>
+            <StatusBar translucent={true} backgroundColor='transparent'/>
+            <BottomTabs zIndex={1000} position="absolute"/>
         </View>
     )
 };

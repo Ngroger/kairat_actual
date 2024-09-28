@@ -1,6 +1,6 @@
-import { StyleSheet} from "react-native";
+import { ScaledSheet } from "react-native-size-matters";
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     background: {
         
     },
@@ -91,9 +91,10 @@ const styles = StyleSheet.create({
     },
     titleNews: {
         fontFamily: 'MulishRegular',
-        fontSize: 16,
+        fontSize: '10@ms',
         position: 'absolute',
         zIndex: 100,
+        left: 10
     },
     pagination: {
         flexDirection: 'row',

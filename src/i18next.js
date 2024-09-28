@@ -7,7 +7,7 @@ import translationKZ from '../locales/kz.json';
 // Поддерживаемые языки
 const resources = {
     ru: {
-            translation: translationRU
+        translation: translationRU
     },
     kz: {
         translation: translationKZ

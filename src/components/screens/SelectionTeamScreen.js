@@ -2,6 +2,8 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import Navbar from '../ui/Navbar';
 import { Svg, Path, G } from 'react-native-svg';
 import { useNavigation } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
+import BottomTabs from '../ui/BottomTabs';
 
 function SelectionTeamScreen() {
     const navigation = useNavigation();
@@ -15,6 +17,8 @@ function SelectionTeamScreen() {
                     <Text style={{ fontFamily: 'MulishRegular', fontSize: 16 }}>Обратно</Text>
                 </TouchableOpacity>
             </View>
+            <StatusBar translucent={true} backgroundColor='transparent'/>
+            <BottomTabs zIndex={1000} position="absolute"/>
         </View>
     )
 };

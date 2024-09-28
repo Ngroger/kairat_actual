@@ -1,12 +1,12 @@
 import { View, Text, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import Navbar from '../ui/Navbar';
 import { useRoute } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
+import BottomTabs from '../ui/BottomTabs';
 
 function SettingsScreen() {
     const route = useRoute();
     const { userData } = route.params;
-
-    console.log('Settings', userData);
 
     return (
         <View style={{ width: '100%', height: '100%' }}>
@@ -72,6 +72,8 @@ function SettingsScreen() {
                     </View>
                 </View>
             </ScrollView>
+            <StatusBar translucent={true} backgroundColor='transparent'/>
+            <BottomTabs zIndex={1000} position="absolute"/>
         </View>
     )
 };

@@ -5,34 +5,45 @@ import { useTranslation } from 'react-i18next';
 import { WebView } from 'react-native-webview';
 import { useEffect, useState, useRef } from 'react';
 import i18next from '../../i18next'
-import UserIdStorage from '../../store/UserIdStore';
-import UserTokenStorage from '../../userSrorage';
+import { StatusBar } from 'expo-status-bar';
+import BottomTabs from '../ui/BottomTabs';
+import { saveLanguage, loadLanguage } from '../../store/LanguageStore';
+import { useWebView } from '../../context/WebViewContext';
 
 function ProfileScreen() {
     const { t } = useTranslation();
     const [lang, setLang] = useState();
-    const webViewRef = useRef(null);
+    const { reloadKey, webRef, reloadWebView } = useWebView();
+    const [url, setUrl] = useState();
 
     useEffect(() => {
-        fetchLang();
-    }, []);
+        const newUrl = i18next.language === 'kz'
+            ? `https://fckairat.com/kz/user/profile`
+            : `https://fckairat.com/user/profile`;
+        setUrl(newUrl);
+        console.log("profile url: ", url, "profile lang: ",i18next.language);
+    }, [i18next.language]);
 
-    const fetchLang = async () => {
-        const lang = i18next.language;
-        setLang(lang);
-    };
+    useEffect(() => {
+        if (url) {
+            reloadWebView();
+        }
+    }, [url]);
 
     return (
-        <View style={{ width: '100%', height: '100%' }}>
-            <Navbar title="ВАШ КАБИНЕТ"/>
+        <View style={{ width: '100%', height: '100%', backgroundColor: '#FFF' }}>
+            <Navbar title={t("your-cabinet")}/>
             <WebView
-                ref={webViewRef}
+                key={reloadKey}
+                ref={webRef}
                 cacheEnabled={false}
-                style={[styles.container, { marginTop: 100 }]}
+                style={[styles.container, { marginTop: 150 }]}
                 thirdPartyCookiesEnabled={true}
-                source={{ uri: lang === 'kz' ? `https://fckairat.com/user/profile/` : `https://fckairat.com/user/profile/` }}
+                source={{ uri: url }}
                 javaScriptEnabled={true}
             />
+            <StatusBar/>
+            <BottomTabs zIndex={0} position="relative"/>
         </View>
     );
 }

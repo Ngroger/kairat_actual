@@ -6,6 +6,8 @@ import { AntDesign } from '@expo/vector-icons';
 import Svg, { Circle, Defs, Filter, FeFlood, FeBlend, FeGaussianBlur, Path } from 'react-native-svg';
 import OurPartners from '../ux/OurPartners';
 import { useState, useEffect } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import BottomTabs from '../ui/BottomTabs';
 
 function PlayerScreen() {
     const route = useRoute();
@@ -21,7 +23,6 @@ function PlayerScreen() {
         
                 // Assuming 'items' is an array in the response
                 setData(result || []);
-                console.log(result);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
@@ -197,6 +198,8 @@ function PlayerScreen() {
                     </View>
                     <OurPartners/>
                 </ScrollView>
+                <StatusBar translucent={true} backgroundColor='transparent'/>
+                <BottomTabs zIndex={0} position="relative"/>
         </View>
     )
 };

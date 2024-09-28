@@ -5,25 +5,41 @@ import { WebView } from 'react-native-webview';
 import { useTranslation } from 'react-i18next';
 import { useState, useRef, useCallback, useEffect } from 'react';
 import i18next from '../../i18next'
+import { View } from 'react-native-animatable';
+import styles from '../../styles/NavbarStyle';
+import { StatusBar } from 'expo-status-bar';
+import BottomTabs from '../ui/BottomTabs';
+import { useWebView } from '../../context/WebViewContext';
+import { loadLanguage } from '../../store/LanguageStore';
 
 function ShopScreen() {
     const navigation = useNavigation();
     const { t } = useTranslation();
     const [lang, setLang] = useState();
-    const webViewRef = useRef(null);
     const [canGoBack, setCanGoBack] = useState(false);
     const route = useRoute();
     const { slug = null } = route.params || {};
-    
+    const { webRef, reloadKey, reloadWebView } = useWebView();
+
+    const [url, setUrl] = useState();
+
     useEffect(() => {
-        fetchLang();
-        console.log("slug:",slug);
-    }, [slug]);
+        const newUrl = i18next.language === 'kz'
+            ? `https://fckairat.com/kz/shop/catalog/${slug}/appmobile/true/`
+            : `https://fckairat.com/shop/catalog/${slug}/appmobile/true/`;
+        setUrl(newUrl);
+    }, [i18next.language, slug]);
+
+    useEffect(() => {
+        if (url) {
+            reloadWebView();
+        }
+    }, [url]);
 
     useEffect(() => {
         const backAction = () => {
-            if (canGoBack && webViewRef.current) {
-                webViewRef.current.goBack();
+            if (canGoBack && webRef.current) {
+                webRef.current.goBack();
                 return true;
             }
             return false;
@@ -37,26 +53,25 @@ function ShopScreen() {
         return () => backHandler.remove();
     }, [canGoBack]);
 
-    const fetchLang = async () => {
-        const lang = i18next.language;
-        setLang(lang);
-    };
-
     const handleNavigationStateChange = (navState) => {
         setCanGoBack(navState.canGoBack);
     };
 
     return (
-        <>
+        <View style={{ width: '100%', height: '100%', backgroundColor: '#FFF' }}>
             <Navbar title={t("shop-title")}/>
             <WebView
-                ref={webViewRef}
-                cacheEnabled={false}
-                style={{ marginTop: 120 }}
-                source={{ uri: lang === 'kz' ? `https://fckairat.com/kz/shop/catalog/${slug}` : `https://fckairat.com/shop/catalog/${slug}` }}
+                key={reloadKey}
+                ref={webRef}
+                style={[styles.container, { marginTop: 120, backgroundColor: '#FFF' }]}
+                source={{
+                    uri: url
+                }}
                 onNavigationStateChange={handleNavigationStateChange}
             />
-        </>
+            <StatusBar translucent={true} backgroundColor='transparent'/>
+            <BottomTabs position="relative" zIndex={0}/>
+        </View>
     )
 };
 

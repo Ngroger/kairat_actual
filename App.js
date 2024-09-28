@@ -4,6 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import MainScreen from './src/components/screens/MainScreen';
 import { FontLoader } from './src/helper/FontLoader';
 import AppNavigation from './src/components/ui/navigation/AppNavigation';
+import { WebViewProvider } from './src/context/WebViewContext';
+import BottomTabs from './src/components/ui/BottomTabs';
 
 class App extends Component {
   constructor(props) {
@@ -17,10 +19,12 @@ class App extends Component {
     await FontLoader(); // Вызываем функцию загрузки шрифтов
     this.setState({ fontsLoaded: true });
   }
-  
+
   render() {
     return (
-      <AppNavigation/>
+      <WebViewProvider>
+        <AppNavigation />
+      </WebViewProvider>
     );
   }
 };

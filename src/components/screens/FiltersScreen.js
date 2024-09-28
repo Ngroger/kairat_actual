@@ -4,6 +4,7 @@ import { AntDesign, Feather, MaterialIcons, Ionicons, FontAwesome5 } from '@expo
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import CategoryAccordion from '../ui/CategoryAccordion';
+import BottomTabs from '../ui/BottomTabs';
 
 function FiltersScreen() {
     const navigation = useNavigation();
@@ -125,7 +126,8 @@ function FiltersScreen() {
                     <Text style={styles.acceptFiltersText}>Показать товары</Text>
                 </TouchableOpacity>
             </ScrollView>
-            <StatusBar/>
+            <StatusBar translucent={true} backgroundColor="transparent"/>
+            <BottomTabs zIndex={1000} position="absolute"/>
         </View>
     )
 };

@@ -4,6 +4,8 @@ import Navbar from '../ui/Navbar';
 import Svg, { Circle, Rect, Path } from 'react-native-svg'
 import { Ionicons } from '@expo/vector-icons';
 import OurPartners from '../ux/OurPartners';
+import { StatusBar } from 'expo-status-bar';
+import BottomTabs from '../ui/BottomTabs';
 
 function TrainersScreen() {
     return (
@@ -66,6 +68,8 @@ function TrainersScreen() {
                 </View>
                 <OurPartners/>
             </ScrollView>
+            <StatusBar translucent={true} backgroundColor='transparent'/>
+            <BottomTabs zIndex={1000} position="absolute"/>
         </View>
     )
 };

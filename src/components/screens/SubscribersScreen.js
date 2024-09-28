@@ -3,6 +3,8 @@ import styles from '../../styles/SubscribersScreenStyle';
 import Navbar from '../ui/Navbar';
 import { AntDesign } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
+import { StatusBar } from 'expo-status-bar';
+import BottomTabs from '../ui/BottomTabs';
 
 function SubscribersScreen() {
     return (
@@ -46,6 +48,8 @@ function SubscribersScreen() {
                     </View>
                 </View>
             </ScrollView>
+            <StatusBar translucent={true} backgroundColor='transparent'/>
+            <BottomTabs zIndex={1000} position="absolute"/>
         </View>
     )
 };

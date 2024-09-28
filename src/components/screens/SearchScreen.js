@@ -1,6 +1,8 @@
 import { Text, TextInput, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import styles from '../../styles/SearchScreenStyle';
 import Navbar from '../ui/Navbar';
+import { StatusBar } from 'expo-status-bar';
+import BottomTabs from '../ui/BottomTabs';
 
 function SearchScreen() {
     return (
@@ -90,6 +92,8 @@ function SearchScreen() {
                     </View>
                 </View>
             </ScrollView>
+            <StatusBar translucent={true} backgroundColor='transparent'/>
+            <BottomTabs zIndex={1000} position="absolute"/>
         </View>
     )
 };

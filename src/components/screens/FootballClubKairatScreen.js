@@ -5,6 +5,8 @@ import { useNavigation } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
 import Svg, { Circle, Defs, Filter, FeFlood, FeBlend, FeGaussianBlur, Path } from 'react-native-svg';
 import OurPartners from '../ux/OurPartners';
+import { StatusBar } from 'expo-status-bar';
+import BottomTabs from '../ui/BottomTabs';
 
 function FootballClubKairatScreen() {
     const navigation = useNavigation();
@@ -64,6 +66,8 @@ function FootballClubKairatScreen() {
                 </View>
                 <OurPartners/>
             </ScrollView>
+            <StatusBar translucent={true} backgroundColor='transparent'/>
+            <BottomTabs zIndex={1000} position="absolute"/>
         </View>
     )
 };

@@ -2,8 +2,12 @@
   "expo": {
     "name": "ФК Кайрат",
     "slug": "kairat2",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "orientation": "portrait",
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
@@ -12,13 +16,62 @@
       "backgroundColor": "#FECC01"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bogdandev3444456.kairat2",
+      "buildNumber": "1.0.0",
+      "icon": "./assets/icon.png",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app needs access to your camera to take photos.",
+        "CFBundleIconFiles": [
+          "icon-20",
+          "icon-20@2x",
+          "icon-20@3x",
+          "icon-29",
+          "icon-29@2x",
+          "icon-29@3x",
+          "icon-40",
+          "icon-40@2x",
+          "icon-40@3x",
+          "icon-60@2x",
+          "icon-60@3x",
+          "icon-76",
+          "icon-76@2x",
+          "icon-83.5@2x",
+          "icon-1024"
+        ],
+        "CFBundleIcons": {
+          "CFBundlePrimaryIcon": {
+            "CFBundleIconFiles": [
+              "icon-20",
+              "icon-20@2x",
+              "icon-20@3x",
+              "icon-29",
+              "icon-29@2x",
+              "icon-29@3x",
+              "icon-40",
+              "icon-40@2x",
+              "icon-40@3x",
+              "icon-60@2x",
+              "icon-60@3x",
+              "icon-76",
+              "icon-76@2x",
+              "icon-83.5@2x",
+              "icon-1024"
+            ],
+            "UIPrerenderedIcon": true
+          }
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FECC01"
       },
+      "permissions": [
+        "CAMERA"
+      ],
+      "versionCode": 4,
       "package": "com.bogdandev3444456.kairat2"
     },
     "web": {

@@ -14,12 +14,13 @@ export const saveLanguage = async (language) => {
 export const loadLanguage = async () => {
     try {
         const storedLanguage = await AsyncStorage.getItem('language');
-        console.log(storedLanguage);
         if (storedLanguage) {
             i18next.language = storedLanguage;
-            await i18next.changeLanguage(storedLanguage); // Добавь эту строку
+            await i18next.changeLanguage(storedLanguage);
+            return storedLanguage; // Возвращаем язык
         }
     } catch (error) {
         console.error('Error loading language:', error);
+        return null; // Возвращаем null в случае ошибки
     }
 };

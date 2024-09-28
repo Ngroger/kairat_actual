@@ -7,14 +7,14 @@ import OurPartners from '../ux/OurPartners';
 import { SimpleLineIcons } from '@expo/vector-icons';
 import NewsJastar from '../ux/NewsJastar';
 import { EvilIcons, Feather  } from '@expo/vector-icons';
+import { StatusBar } from 'expo-status-bar';
+import BottomTabs from '../ui/BottomTabs';
+import { useTranslation } from 'react-i18next';
 
 function ContactsScreen() {
-    const navigation = useNavigation();
     const route = useRoute();
     const { scrollToOffset } = route.params || {};
-    const [isShowOffer, setIsShowOffer] = useState(false);
-    const [isShowMeirimi, setIsShowMeirimi] = useState(false);
-    const [isShowBlind, setIsShowBlind] = useState(false);
+    const {t} = useTranslation();
 
     useEffect(() => {
         if (scrollToOffset) {
@@ -25,37 +25,41 @@ function ContactsScreen() {
     const scrollViewRef = useRef();
 
     return (
-        <View>
-            <Navbar activityApp='Tickets' title='ФУТБОЛЬНЫЙ КЛУБ «КАЙРАТ»'/>
-            <ScrollView ref={scrollViewRef} style={{ backgroundColor: '#FFF', width: '100%', height: '100%', marginTop: 120 }}>
-                <View style={{ marginBottom: 120 }}>
-                    <Text style={{ fontSize: 20, fontFamily: 'MulishBold', paddingHorizontal: 24, marginTop: 24 }}>Контакты</Text>
-                    <Text style={{ fontSize: 12, fontFamily: 'MulishRegular', paddingHorizontal: 24, letterSpacing: 0.6, marginTop: 10 }}>
-                        <Text style={{ fontFamily: 'MulishBold' }}>Администрация Клуба:</Text>{'\n'}
-                        Адрес: г. Алматы, 050054, ул. Майлина, 230
-                        Телефон: +7 (727) 339 03 49
-                        Е-mail: info@fckairat.kz{'\n'}{'\n'}
+        <>
+            <View>
+                <Navbar activityApp='Tickets' title={t("main-title")}/>
+                <ScrollView ref={scrollViewRef} style={{ backgroundColor: '#FFF', width: '100%', height: '100%', marginTop: 120 }}>
+                    <View style={{ marginBottom: 120 }}>
+                        <Text style={{ fontSize: 20, fontFamily: 'MulishBold', paddingHorizontal: 24, marginTop: 24 }}>{t("contacts-screen.title")}</Text>
+                        <Text style={{ fontSize: 12, fontFamily: 'MulishRegular', paddingHorizontal: 24, letterSpacing: 0.6, marginTop: 10 }}>
+                            <Text style={{ fontFamily: 'MulishBold' }}>{t("contacts-screen.title")}</Text>{'\n'}
+                            {t("contacts-screen.address")}: г. Алматы, 050054, ул. Майлина, 230
+                            {t("contacts-screen.phone")}: +7 (727) 339 03 49
+                            Е-mail: info@fckairat.kz{'\n'}{'\n'}
 
-                        <Text style={{ fontFamily: 'MulishBold' }}>По вопросам набора детей в Академию:</Text>{'\n'}
-                        Академия им. Т. С. Сегизбаева:{'\n'}
-                        Телефон: +7 (702) 150 83 26 (ул. Майлина, 230){'\n'}
-                        E-mail: k.talasbayev@fckairat.kz (Касымхан Таласбаев, скаут-селекционер){'\n'}{'\n'}
+                            <Text style={{ fontFamily: 'MulishBold' }}>{t("contacts-screen.for-questions")}</Text>{'\n'}
+                            Академия им. Т. С. Сегизбаева:{'\n'}
+                            Телефон: +7 (702) 150 83 26 (ул. Майлина, 230){'\n'}
+                            E-mail: k.talasbayev@fckairat.kz (Касымхан Таласбаев, скаут-селекционер){'\n'}{'\n'}
 
-                        <Text style={{ fontFamily: 'MulishBold' }}>Официальный магазин ФК «Кайрат»:</Text>{'\n'}{'\n'}
-                        Телефoн: +7 747 062 15 49{'\n'}
-                        Е-mail: o.dzhumakanova@fckairat.kz (Оксана Джумаканова){'\n'}{'\n'}
+                            <Text style={{ fontFamily: 'MulishBold' }}>{t("contacts-screen.official-shop")}</Text>{'\n'}{'\n'}
+                            {t("contacts-screen.phone")}: +7 747 062 15 49{'\n'}
+                            Е-mail: o.dzhumakanova@fckairat.kz (Оксана Джумаканова){'\n'}{'\n'}
 
-                        <Text style={{ fontFamily: 'MulishBold' }}>По вопросам покупки онлайн билетов:</Text>{'\n'}{'\n'}
-                        Телефон: +7 (727) 339 03 47{'\n'}
-                        E-mail: ts@fckairat.kz{'\n'}{'\n'}
-                    </Text>
-                    <NewsJastar slug='novosti-kluba'/>
-                    <View style={{ marginTop: 40 }}>
-                        <OurPartners/>
+                            <Text style={{ fontFamily: 'MulishBold' }}>{t("contacts-screen.tickets-questions")}</Text>{'\n'}{'\n'}
+                            {t("contacts-screen.phone")}: +7 (727) 339 03 47{'\n'}
+                            E-mail: ts@fckairat.kz{'\n'}{'\n'}
+                        </Text>
+                        <NewsJastar slug='novosti-kluba'/>
+                        <View style={{ marginTop: 40, marginBottom: 60 }}>
+                            <OurPartners/>
+                        </View>
                     </View>
-                </View>
-            </ScrollView>
-        </View>
+                </ScrollView>
+                <StatusBar translucent={true} backgroundColor='transparent'/>
+            </View>
+            <BottomTabs zIndex={1000} position="absolute"/>
+        </>
     )
 };
 
