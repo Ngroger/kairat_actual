@@ -14,8 +14,6 @@ function Slider() {
                 const response = await fetch("https://fckairat.com/v1/slider");
                 const data = await response.json();
                 setSlides(data);
-                console.log('data', data[0])
-                console.log(slides);
             } catch (error) {
                 console.error("Error fetching slides:", error);
             }
@@ -33,7 +31,7 @@ function Slider() {
             >
                 {slides.map((slide, index) => (
                     <View key={index}>
-                        <Slide title={slide.categoryTitle} desription={slide.title} image={slide.imageAbsolute}/>  
+                        <Slide title={slide.categoryTitle} desription={slide.title} image={slide.imageAbsolute} />
                     </View>
                 ))}
             </Swiper>

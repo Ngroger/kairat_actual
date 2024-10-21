@@ -1,14 +1,7 @@
-import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { View } from 'react-native';
 import Navbar from '../ui/Navbar';
-import { Svg, Path, Rect, ClipPath, Defs, G } from 'react-native-svg';
-import { useNavigation, useRoute } from '@react-navigation/native';
-import { useRef, useEffect, useState } from 'react';
-import OurPartners from '../ux/OurPartners';
-import { SimpleLineIcons } from '@expo/vector-icons';
-import NewsJastar from '../ux/NewsJastar';
-import { EvilIcons, Feather  } from '@expo/vector-icons';
-import Application from '../ux/modal/Application';
-import SuccessApplication from '../ux/modal/SuccessApplication';
+import { useNavigation } from '@react-navigation/native';
+import { useEffect, useState } from 'react';
 import WebView from 'react-native-webview';
 import styles from '../../styles/NavbarStyle';
 import { useTranslation } from 'react-i18next';
@@ -16,17 +9,12 @@ import { StatusBar } from 'expo-status-bar';
 import BottomTabs from '../ui/BottomTabs';
 import { useWebView } from '../../context/WebViewContext';
 import i18next from '../../i18next';
-import { loadLanguage } from '../../store/LanguageStore';
 
 
 function AcademyScreen() {
-    const navigation = useNavigation();
     const { webRef, reloadKey, reloadWebView } = useWebView();
-    const [lang, setLang] = useState(i18next);
     const [url, setUrl] = useState();
-    const {t} = useTranslation();
-
-    console.log("test");
+    const { t } = useTranslation();
 
     useEffect(() => {
         const newUrl = i18next.language === 'kz'
@@ -47,15 +35,27 @@ function AcademyScreen() {
 
     return (
         <View style={{ width: '100%', height: '100%', backgroundColor: '#FFF' }}>
-            <Navbar title={t("main-title")}/>
+            <Navbar title={t("main-title")} />
             <WebView
-                key={reloadKey} // Устанавливаем ключ для перерисовки
+                key={reloadKey}
                 ref={webRef}
                 style={[styles.container, { backgroundColor: '#FFF', marginTop: 120 }]}
                 source={{ uri: url }}
+                injectedJavaScript={`
+                    const metaViewport = document.createElement('meta');
+                    metaViewport.name = 'viewport';
+                    metaViewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
+                    document.head.appendChild(metaViewport);
+                    const style = document.createElement('style');
+                    style.innerHTML = '* { max-width: 100vw !important; overflow-x: hidden !important; } body { overflow-x: hidden; }';
+                    document.head.appendChild(style);
+                `}
+
+                javaScriptEnabled={true}
             />
-            <StatusBar translucent={true} backgroundColor='transparent'/>
-            <BottomTabs zIndex={0} position="relative"/>
+
+            <StatusBar translucent={true} backgroundColor='transparent' />
+            <BottomTabs zIndex={0} position="relative" />
         </View>
     )
 };

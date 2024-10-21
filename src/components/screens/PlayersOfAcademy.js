@@ -15,7 +15,7 @@ function PlayersOfAcademy() {
     const route = useRoute();
     const { slug, ancgor } = route.params;
     const [lang, setLang] = useState();
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     const { webRef, reloadKey, reloadWebView } = useWebView();
 
     useEffect(() => {
@@ -35,7 +35,6 @@ function PlayersOfAcademy() {
 
     const loadCurrentLanguage = async () => {
         const selectedLanguage = await loadLanguage();
-        console.log("lang all matches:", selectedLanguage);
         if (selectedLanguage) {
             i18next.changeLanguage(selectedLanguage);
         }
@@ -54,12 +53,9 @@ function PlayersOfAcademy() {
         setLang(lang)
     };
 
-    console.log("kz: ", `https://fckairat.com/kz/academy?slug=${slug}-kz&appmobile=true${ancgor}`);
-    console.log("ru: ", `https://fckairat.com/academy/slug=${slug}&appmobile=true${ancgor}`);
-
     return (
         <View style={{ width: '100%', height: '100%' }}>
-            <Navbar activityApp='Tickets' title={t("main-title")}/>
+            <Navbar activityApp='Tickets' title={t("main-title")} />
             <WebView
                 key={reloadKey} // Устанавливаем ключ для перерисовки
                 ref={webRef}
@@ -68,8 +64,8 @@ function PlayersOfAcademy() {
                 }}
                 style={[styles.container, { marginTop: 120, backgroundColor: '#FFF' }]}
             />
-            <StatusBar translucent={true} backgroundColor='transparent'/>
-            <BottomTabs zIndex={0} position="relative"/>
+            <StatusBar translucent={true} backgroundColor='transparent' />
+            <BottomTabs zIndex={0} position="relative" />
         </View>
     )
 };

@@ -88,7 +88,9 @@ function NavbarMenu({ onClose }) {
                     )}
                     <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', marginTop: 16, marginLeft: 25, }} onPress={() => toggleOpenAccordion('Клубы')}>
                         {openAccordion === 'Клубы' && (
-                            <Image style={{ height: lang === 'kz' ? 30 : 25, width: lang === 'kz' ? 250 : 120, position: 'absolute', zIndex: -10, left: -25 }} source={require("../../img/burger-menu-line.png")} />
+                            <Svg style={{ position: 'absolute', zIndex: -10 }} xmlns="http://www.w3.org/2000/svg" width={126} height={30} viewBox="0 0 146 30" fill="none">
+                                <Path d="M16.0745 6.9782e-06L145.423 0L128 30H0L16.0745 6.9782e-06Z" fill="white" />
+                            </Svg>
                         )}
                         <Text style={styles.button}>{t('club')}</Text>
                     </TouchableOpacity>
@@ -108,6 +110,9 @@ function NavbarMenu({ onClose }) {
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => { navigation.navigate('About', { scrollToOffset: 1450 }); onClose(); }}>
                                 <Text style={styles.additionalButton}>{t("club-tabs.infrastructure")}</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => { navigation.navigate('About', { scrollToOffset: 2400 }); onClose(); }}>
+                                <Text style={styles.additionalButton}>{t("club-tabs.ceo")}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={() => { navigation.navigate('About', { scrollToOffset: 3000 }); onClose(); }}>
                                 <Text style={styles.additionalButton}>{t("club-tabs.partners")}</Text>

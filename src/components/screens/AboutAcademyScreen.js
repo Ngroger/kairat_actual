@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView, Linking } from 'react-native';
 import Navbar from '../ui/Navbar';
 import { Svg, Path, Rect, ClipPath, Defs, G } from 'react-native-svg';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -77,7 +77,7 @@ function AboutAcademyScreen() {
                             </ClipPath>
                         </Defs>
                     </Svg>
-                    <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>ИНФРАСТРУКТУРА КЛУБА</Text>
+                    <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>{t("club-infrastructure.title")}</Text>
                 </View>
                 <View>
                     <View style={{ paddingHorizontal: 24, paddingVertical: 10, flexDirection: 'row', display: 'flex' }}>
@@ -120,8 +120,11 @@ function AboutAcademyScreen() {
                     <View style={{ paddingHorizontal: 24, paddingVertical: 10, flexDirection: 'row', display: 'flex' }}>
                         <View style={{ width: 168, height: 120 }}>
                             <Image style={{ borderRadius: 12, width: '100%', height: '100%' }} source={require('../../img/history7.png')} />
-                            <TouchableOpacity style={{ backgroundColor: '#FECC01', padding: 6, borderRadius: 6, position: 'absolute', zIndex: 10, right: 10, bottom: 10 }}>
-                                <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>Подробнее</Text>
+                            <TouchableOpacity
+                                onPress={() => Linking.openURL('https://www.instagram.com/fckairat_academy/')}
+                                style={{ backgroundColor: '#FECC01', padding: 6, borderRadius: 6, position: 'absolute', zIndex: 10, right: 10, bottom: 10 }}
+                            >
+                                <Text style={{ fontFamily: 'MulishBold', fontSize: 16 }}>{t("more-button")}</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={{ marginLeft: 10 }}>
@@ -247,104 +250,49 @@ function AboutAcademyScreen() {
                             </ClipPath>
                         </Defs>
                     </Svg>
-                    <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>ПРЕСС-ЦЕНТР</Text>
+                    <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>{t("press-center-title")}</Text>
                 </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center', display: 'flex', paddingHorizontal: 24 }}>
-                    <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20 }}>Регламент работы футбольного клуба «Кайрат» со СМИ</Text>
+                    <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20 }}>{t("reglament")}</Text>
                 </View>
-                <Text style={{ fontFamily: 'MulishRegular', fontSize: 16, paddingHorizontal: 24, marginTop: 12 }}>
-                    Аккредитация подразумевает свободное посещение домашних матчей ФК «Кайрат» и послематчевых пресс-конференций на Центральном стадионе города Алматы.{'\n'}{'\n'}
-                    На домашних матчах футбольного клуба «Кайрат» работают десятки журналистов, фотографов и телевизионных операторов. Для удобства журналистов на Центральном стадионе клуба в дни матчей функционирует беспроводной доступ в интернет.{'\n'}{'\n'}
-                    «Кайрат» регулярно перед стартом сезона проводит пресс-конференции и встречи со средствами массовой информации. Анонсы всех клубных мероприятий, открытых для посещения журналистами, публикуются на официальном сайте и в социальных сетях клуба.{'\n'}{'\n'}
-                </Text>
+                {t("accreditation").split('\n').map((line, index) => (
+                    <Text style={{ fontFamily: 'MulishRegular', fontSize: 16, paddingHorizontal: 24, marginTop: 12 }}>
+                        {line}
+                    </Text>
+                ))}
                 <View style={{ paddingHorizontal: 24 }}>
                     <View style={{ backgroundColor: '#FECC01', width: '100%', borderRadius: 12, padding: 12, flexDirection: 'row', display: 'flex' }}>
                         <Image style={{ width: 69, height: 125 }} source={require('../../img/123.png')} />
                         <View style={{ marginLeft: 12 }}>
-                            <Text style={{ fontSize: scale(14), fontFamily: 'MulishBlack' }}>Преесс-служба ФК Кайрат</Text>
-                            <Text style={{ fontSize: scale(14), fontFamily: 'MulishRegular', marginTop: 10 }}>
-                                г. Алматы, улица Майлина, 230{'\n'}
-                                +7 727 393 13 93,  вн. 151{'\n'}
-                                press@fckairat.kz{'\n'}
-                            </Text>
+                            <Text style={{ fontSize: scale(14), fontFamily: 'MulishBlack' }}>{t("press-center-info.title")}</Text>
+                            {t("press-center-info.address").split('\n').map((line, index) => (
+                                <Text key={index} style={{ fontSize: scale(14), fontFamily: 'MulishRegular', marginTop: 10 }}>
+                                    {line}
+                                </Text>
+                            ))}
                             <TouchableOpacity onPress={() => setisPressFeedback(true)} style={{ alignItems: 'center', justifyContent: 'center', backgroundColor: '#FFF', borderRadius: 12, width: 170, padding: 6 }}>
-                                <Text style={{ fontSize: scale(14), fontFamily: 'MulishMedium' }}>Отправить запрос</Text>
+                                <Text style={{ fontSize: scale(14), fontFamily: 'MulishMedium' }}>{t("press-center-info.send")}</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
                 </View>
                 <View style={{ paddingHorizontal: 24, marginTop: 24 }}>
-                    <Text style={{ fontSize: 20, fontFamily: 'MulishBlack' }}>Аккредитационное СМИ:</Text>
-                    <Text style={{ fontSize: 16, marginTop: 10, fontFamily: 'MulishRegular' }}>
-                        Аккредитация представителей СМИ стартует примерно за две недели до первого домашнего матча сезона. Информация о старте приёма заявок на аккредитацию публикуется на официальном сайте клуба и в социальных сетях. Приём заявок останавливается в конце марта. Все дальнейшие заявки не подлежат рассмотрению.{'\n'}{'\n'}
-
-                        Пропуски для представителей СМИ делятся на три типа:
-
-                        PRESS A пишущие журналисты, располагающиеся на пресс-ложе
-
-                        PRESS B фотокорреспонденты/видеокорреспонденты с доступом на поле
-
-                        BROADCAST телевещатель (комментаторы, операторы, режиссёры и др.){'\n'}{'\n'}
-
-                        Заявка на аккредитацию должна быть оформлена на фирменном бланке с печатью издания, подписью руководителя и включать следующие сведения:
-
-                        – Название СМИ/информационного агентства
-
-                        – ФИО аккредитуемых журналистов/фотокорреспондентов/телеоператоров
-
-                        – Контактный номер каждого из аккредитуемых представителей
-
-                        – Тип аккредитации каждого из аккредитуемых представителей
-
-                        – Почтовый адрес СМИ/информационного агентства{'\n'}{'\n'}
-
-
-                        К заявке на аккредитацию должны прилагаться следующие файлы:
-
-                        – Цветная фотография (3x4) аккредитуемого представителя СМИ в формате JPG или PNG
-
-                        – Копия служебного удостоверения/справка с места работы аккредитуемого представителя СМИ{'\n'}{'\n'}
-
-
-                        Аккредитованным журналистам выдается именной пропуск на сезон, подтверждающий допуск на домашние матчи ФК «Кайрат» в рамках Чемпионата и Кубка Казахстана. Данный пропуск предоставляет право входа на Центральный стадион (с 11-го подъезда), а также нахождения в пресс-ложе, микст-зоне и конференц-зале во время и после окончания футбольного матча.{'\n'}{'\n'}
-
-
-                        Пресс-служба ФК «Кайрат» оставляет за собой право отзыва аккредитации:{'\n'}{'\n'}
-
-                        <Text style={{ fontFamily: 'MulishBlack' }}>– В случае нарушения журналистом правил подачи заявки на аккредитацию</Text>{'\n'}
-
-                        <Text style={{ fontFamily: 'MulishBlack' }}>– При увольнении журналиста из редакции</Text>{'\n'}
-
-                        <Text style={{ fontFamily: 'MulishBlack' }}>– При прекращении деятельности СМИ</Text>{'\n'}
-
-                        <Text style={{ fontFamily: 'MulishBlack' }}>– В случае распространения не соответствующих действительности сведений, причинивших организации репутационной или иной вред</Text>{'\n'}
-
-                        <Text style={{ fontFamily: 'MulishBlack' }}>– В случае прекращения освещения спортивной жизни ФК «Кайрат»</Text>{'\n'}
-
-                        <Text style={{ fontFamily: 'MulishBlack' }}>– При нарушении правил поведения на Центральном стадионе во время проведения матча</Text>{'\n'}
-
-                    </Text>
+                    <Text style={{ fontSize: 20, fontFamily: 'MulishBlack' }}>{t("media-accreditation.title")}</Text>
+                    {t("media-accreditation.info").split('\n').map((line, index) => (
+                        <Text key={index} style={{ fontSize: 16, marginTop: 10, fontFamily: 'MulishRegular' }}>{line}</Text>
+                    ))}
+                    {t("media-accreditation.cancel").split('\n').map((line, index) => (
+                        <Text key={index} style={{ fontSize: 16, marginTop: 10, fontFamily: 'MulishBlack' }}>{line}</Text>
+                    ))}
                 </View>
                 <View style={{ padding: 24 }}>
-                    <Text style={{ fontSize: 20, fontFamily: 'MulishBlack' }}>Правила поведения СМИ:</Text>
+                    <Text style={{ fontSize: 20, fontFamily: 'MulishBlack' }}>{t("media-rules.title")}</Text>
                     <View style={{ borderWidth: 2, borderRadius: 12, borderColor: '#FECC01', padding: 24, marginTop: 10 }}>
-                        <Text style={{ fontSize: 16, fontFamily: 'MulishRegular' }}>
-                            •  Фотокорреспонденты после успешной аккредитации получают манишку (жилетку) с индивидуальным номером и отвечают за её сохранность до конца сезона{'\n'}{'\n'}
-
-                            •  Проход представителей СМИ на территорию стадиона осуществляется со стороны проспекта Абая, правее турникетов, возле Kairat Sportpub{'\n'}{'\n'}
-
-                            •  Проход представителей СМИ на трибуны стадиона осуществляется через 11-й подъезд, со стороны западной трибуны{'\n'}{'\n'}
-
-                            •  В день игры на территории стадиона все аккредитованные представители СМИ должны носить видимые пропуски{'\n'}{'\n'}
-
-                            •  Во время матча журналисты должны находиться на пресс-ложе{'\n'}{'\n'}
-
-                            •  Во время матча фотокорреспонденты должны находиться на поле в собственных манишках, строго за рекламными LED-бортами, находящимися за воротами{'\n'}{'\n'}
-
-                            •  Во время матча представители СМИ должны вести себя профессионально, не мешая проведению мероприятия и другим участникам{'\n'}{'\n'}
-
-                            •  Все интервью с игроками, тренерами и другими представителями ФК «Кайрат» должны проводиться с устного согласия пресс-службы клуба
-                        </Text>
+                        {t("media-rules.info").split('\n').map((line, index) => (
+                            <Text key={index} style={{ fontSize: 16, fontFamily: 'MulishRegular' }}>
+                                {line}
+                            </Text>
+                        ))}
                     </View>
                 </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center', display: 'flex', padding: 24 }}>
@@ -366,47 +314,48 @@ function AboutAcademyScreen() {
                             </ClipPath>
                         </Defs>
                     </Svg>
-                    <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>СОЦИАЛЬНАЯ ОТВЕТСТВЕННОСТЬ</Text>
+                    <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>{t("social-responsibility-info.title")}</Text>
                 </View>
                 <View style={{ paddingHorizontal: 24 }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center', display: 'flex' }}>
                         <Image style={{ height: 40, width: 35, resizeMode: 'center' }} source={require('../../img/Alma2.png')} />
-                        <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 12, marginLeft: 10, width: 300 }}>Футбольный клуб «Кайрат», давно перестал быть просто футбольной командой, став одним из символов города Алматы.</Text>
+                        <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 12, marginLeft: 10, width: 300 }}>{t("social-responsibility-info.description")}</Text>
                     </View>
-                    <Text style={{ fontSize: 16, fontFamily: 'MulishRegular', marginTop: 24 }}>
-                        «Кайрат» по-настоящему народная команда, объединяющая людей с разными характерами, привычками, предпочтениями, которые искренне болеют душой за родной клуб.{'\n'}{'\n'}
-
-                        И даже, в самые непростые времена мы должны поддерживать и помогать тем, кто нуждается в этом.{'\n'}{'\n'}
-
-                        Игроки и сотрудники ФК «Кайрат» всегда с большим энтузиазмом принимают участие в благотворительных акциях и оказывают содействие и поддержку реабилитационным центрам и детским домам.
-                    </Text>
+                    {t("social-responsibility-info.info").split('\n').map((line, index) => (
+                        <Text key={index} style={{ fontSize: 16, fontFamily: 'MulishRegular', marginTop: 24 }}>
+                            {line}
+                        </Text>
+                    ))}
                 </View>
                 <View style={{ paddingHorizontal: 24 }}>
                     <View style={{ borderBottomColor: '#FECC01', borderBottomWidth: 3, width: '100%', paddingVertical: 12 }}>
                         <TouchableOpacity onPress={() => setIsShowMeirimi(!isShowMeirimi)} style={{ flexDirection: 'row', alignItems: 'center', display: 'flex', paddingHorizontal: 6, justifyContent: 'space-between' }}>
-                            <Text style={{ fontFamily: 'MulishBlack', fontSize: 16 }}>• МЕЙIРIМ</Text>
+                            <Text style={{ fontFamily: 'MulishBlack', fontSize: 16 }}>{t("meirimi.title")}</Text>
                             <SimpleLineIcons name={isShowMeirimi ? "arrow-up" : "arrow-down"} size={24} color="black" />
                         </TouchableOpacity>
                         {isShowMeirimi && (
-                            <Text style={{ fontSize: 16, marginTop: 10, fontFamily: 'MulishRegular' }}>
-                                Реабилитационный центр «Мейірім» для детей и подростков с особенностями физического и ментального развития находится в городе Алматы. В «Мейірім» созданы все необходимые условия для всестороннего развития, социализации, обучения детей и подростков в возрасте от 3 до 15 лет. Центр оказывает коррекционно-развивающую помощь детям и подросткам с диагнозами: детский церебральный паралич, различные нарушения опорно-двигательного аппарата и интеллектуального развития, синдром Дауна, задержка психо-речевого развития. С момента открытия услугами Центра воспользовались более 1000 детей с особенностями развития.{'\n'}
-
-                                Основная команда ФК «Кайрат», а также воспитанники Академии регулярно посещают мероприятия реабилитационного центра «Мейірім» и весело проводят время вместе с детьми: танцуют, поют, дарят подарки.
-                            </Text>
+                            <>
+                                {t("meirimi.description").split('\n').map((line, index) => (
+                                    <Text key={index} style={{ fontSize: 16, marginTop: 10, fontFamily: 'MulishRegular' }}>
+                                        {line}
+                                    </Text>
+                                ))}
+                            </>
                         )}
                     </View>
                     <View style={{ borderBottomColor: '#FECC01', borderBottomWidth: 3, width: '100%', paddingVertical: 12 }}>
                         <TouchableOpacity onPress={() => setIsShowBlind(!isShowBlind)} style={{ flexDirection: 'row', alignItems: 'center', display: 'flex', paddingHorizontal: 6, justifyContent: 'space-between' }}>
-                            <Text style={{ fontFamily: 'MulishBlack', fontSize: 16 }}>• BLIND FOOTBALL</Text>
+                            <Text style={{ fontFamily: 'MulishBlack', fontSize: 16 }}>{t("blind-football.title")}</Text>
                             <SimpleLineIcons name={isShowBlind ? "arrow-up" : "arrow-down"} size={24} color="black" />
                         </TouchableOpacity>
                         {isShowBlind && (
-                            <Text style={{ fontSize: 16, marginTop: 10, fontFamily: 'MulishRegular' }}>
-                                Blind Football – адаптированная для слепых или слабовидящих игроков версия мини-футбола. Этот паралимпийский вид спорта уже более 30 лет развивается в странах Азии, Европы, Северной и Южной Америки. Футбол для незрячих имеет определенные правила. Перед матчем всем игрокам, кроме вратаря, заклеивают глаза и сверху надевают специальные маски, сквозь которые не просвечивает свет и нельзя различить силуэты. Вместо обычных мячей в игре применяются звенящие аналоги, чтобы футболисты могли ориентироваться по звуку.{'\n'}
-
-                                В 2018 году была создана команда Kairat Blind Football, первая в своём роде в Казахстане. С ноября 2022 года команда Kairat Blind Football функционирует как национальная сборная Казахстана. Тренировки команды проходят в юношеской футбольной Академии им. Пехлеваниди. С плоховидящими ребятами занимается тренер Анатолий Антипин, прошедший обучение в Международной федерации по спорту слепых (IBSA), чьё значение в мире параспорта сопоставимо с FIFA.
-                                Перед командой стоит цель – попадание на Паралимпиаду-2028.
-                            </Text>
+                            <>
+                                {t("blind-football.description").split('\n').map((line, index) => (
+                                    <Text key={index} style={{ fontSize: 16, marginTop: 10, fontFamily: 'MulishRegular' }}>
+                                        {line}
+                                    </Text>
+                                ))}
+                            </>
                         )}
                     </View>
                 </View>
@@ -423,29 +372,13 @@ function AboutAcademyScreen() {
                             </ClipPath>
                         </Defs>
                     </Svg>
-                    <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>АЛМАТЫ — ДОМАШНИЙ ГОРОД</Text>
+                    <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>{t("almaty.title")}</Text>
                 </View>
-                <Text style={{ fontFamily: 'MulishRegular', fontSize: 16, marginBottom: 150, paddingHorizontal: 24 }}>
-                    Алматы — южная столица Казахстана, город с полуторамиллионным населением, административный, экономический, культурный и спортивный центр республики. Окруженный полукольцом заснеженных гор Заилийского Алатау, он пленяет своей неповторимостью. Альпийские луга, тянь-шаньские ели, сады служат ему своеобразным обрамлением.{'\n'}{'\n'}
-
-                    С высокого холма Кок Тобе обозревается весь город — панорама строго расчерченных, одетых в зелень кварталов, взметнувшиеся в яркую синеву неба красивые высотные здания. Удачно вписанные в горный пейзаж, подчиненные единому оригинальному решению, они составляют прекрасный архитектурный ансамбль города, в котором широко используются элементы национальной культуры и достижения современной строительной техники.{'\n'}{'\n'}
-
-                    Во все времена года привлекает к себе высокогорный каток "Медео". Знаменитый лед, лед мировых рекордов, сверкает под ярким горным солнцем. Благодаря своим исключительным природным данным и уникальному инженерному и архитектурному решению, этот спортивный комплекс получил всемирную известность, стал гордостью алматинцев.{'\n'}{'\n'}
-
-                    Спортивной визитной карточкой Алматы является народная футбольная команда "Кайрат", защищающая честь не только города в Чемпионате Республики Казахстан,но и страны, выступая в матчах Лиги Чемпионов, Лиги Европы и Лиги Конференций УЕФА.{'\n'}{'\n'}
-
-                    Южная столица Казахстана щедра и гостеприимна. Теплом и солнцем встречает она гостей и хорошеет с каждым годом.{'\n'}{'\n'}
-
-                    Алматы — город-сад.{'\n'}{'\n'}
-
-                    Половину ее площади занимают зеленые насаждения - пирамидальный и серебристый тополь, вяз, дуб, береза, липа, белая акация, сосна и ель.{'\n'}{'\n'}
-
-                    Весной, когда все расцветает, Алматы особенно хороша. Белая пена садов покрывает окрестные горы и спускается в самую гущу городских кварталов, красным ковром расстилаются тюльпаны.{'\n'}{'\n'}
-
-                    Летом вечерняя прохлада и ветерок с гор зовут на прогулку по бульварам и проспектам, на площади с яркими цветниками, где причудливыми брызгами рассыпаются струи многочисленных фонтанов.{'\n'}{'\n'}
-
-                    Осень завораживает золотой листвой, пронизанной солнцем, ароматом знаменитых алматинских яблок - апорта. А как прекрасна в городе зима, недолгая, но морозная и снежная. На лыжи и коньки встают тогда все горожане.
-                </Text>
+                {t("almaty.info").split('\n').map((line, index) => (
+                    <Text key={index} style={{ fontFamily: 'MulishRegular', fontSize: 16, paddingHorizontal: 24 }}>
+                        {line}
+                    </Text>
+                ))}
             </ScrollView>
             <StatusBar translucent={true} backgroundColor='transparent' />
             {isPressFeedback && <PressFeedback onClose={() => setisPressFeedback(false)} />}

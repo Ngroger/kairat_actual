@@ -98,10 +98,10 @@ function Registration({ changeMethod }) {
 
             if (!surname) setIsSurnameError(true)
             else setIsSurnameError(false);
-            
+
             if (!city) setIsCityError(true)
             else setIsSurnameError(false);
-            
+
             if (!selectedDate) setIsDateError(true)
             else setIsDateError(false);
 
@@ -110,7 +110,6 @@ function Registration({ changeMethod }) {
 
         } else {
             setIsError(false);
-            console.log('reg')
             const data = {
                 "name": `${name}`,
                 "last_name": `${surname}`,
@@ -130,14 +129,10 @@ function Registration({ changeMethod }) {
                     },
                     body: JSON.stringify(data)
                 });
-        
-                if (response.ok) {
-                    console.log('response.ok');
-                    const responseData = await response.json();
-                    console.log(responseData);
-                    if (responseData.success) {
-                        console.log('UserInfo:', responseData);
 
+                if (response.ok) {
+                    const responseData = await response.json();
+                    if (responseData.success) {
                         const userInfo = {
                             username: extractUsername(email),
                             fullname: name,
@@ -152,10 +147,9 @@ function Registration({ changeMethod }) {
 
                         // Добавляем информацию о пользователе в AsyncStorage
                         await addUserInfo(userInfo);
-                        
+
                         // Получаем и логируем все данные из UserStorage
                         const userInfoFromStorage = await getUserInfo();
-                        console.log('User info from UserStorage:', userInfoFromStorage);
                         navigation.navigate('Success');
                     }
                 } else {
@@ -173,9 +167,9 @@ function Registration({ changeMethod }) {
             <ScrollView style={{ height: 300 }}>
                 <View style={styles.field}>
                     <Text style={styles.fieldTitle}>Email *</Text>
-                    <TextInput value={email} onChangeText={onChangeEmail} style={styles.input}/>
+                    <TextInput value={email} onChangeText={onChangeEmail} style={styles.input} />
                 </View>
-                { isEmailError && <Text style={{ textAlign: 'center', padding: 10, fontSize: 16, color: '#8B0000', fontFamily: 'MulishRegular' }}>Необходимо заполнить «Email *»</Text> }
+                {isEmailError && <Text style={{ textAlign: 'center', padding: 10, fontSize: 16, color: '#8B0000', fontFamily: 'MulishRegular' }}>Необходимо заполнить «Email *»</Text>}
                 <View style={styles.field}>
                     <Text style={styles.fieldTitle}>Номер телефона *</Text>
                     {/* <TextInput value={phoneNumber} onChangeText={onChangePhoneNumber} maxLength={11} keyboardType='numeric' style={styles.input}/> */}
@@ -185,34 +179,31 @@ function Registration({ changeMethod }) {
 
                         onChangeText={(masked, unmasked) => {
                             onChangePhoneNumber(unmasked); // you can use the unmasked value as well
-                    
-                            console.log(masked);
-                            console.log(unmasked);
                         }}
                         mask={['+', /\d/, '-', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
                     />
                 </View>
-                { isPhoneNumberError && <Text style={{ textAlign: 'center', padding: 10, fontSize: 16, color: '#8B0000', fontFamily: 'MulishRegular' }}>Необходимо заполнить «Номер телефона *»</Text> }
+                {isPhoneNumberError && <Text style={{ textAlign: 'center', padding: 10, fontSize: 16, color: '#8B0000', fontFamily: 'MulishRegular' }}>Необходимо заполнить «Номер телефона *»</Text>}
                 <View style={styles.field}>
                     <Text style={styles.fieldTitle}>Имя *</Text>
-                    <TextInput value={name} onChangeText={onChangeName} style={styles.input}/>
+                    <TextInput value={name} onChangeText={onChangeName} style={styles.input} />
                 </View>
-                { isNameError && <Text style={{ textAlign: 'center', padding: 10, fontSize: 16, color: '#8B0000', fontFamily: 'MulishRegular' }}>Необходимо заполнить «Имя *»</Text> }
+                {isNameError && <Text style={{ textAlign: 'center', padding: 10, fontSize: 16, color: '#8B0000', fontFamily: 'MulishRegular' }}>Необходимо заполнить «Имя *»</Text>}
 
                 <View style={styles.field}>
                     <Text style={styles.fieldTitle}>Фамилия *</Text>
-                    <TextInput value={surname} onChangeText={onChangeSurnname} style={styles.input}/>
+                    <TextInput value={surname} onChangeText={onChangeSurnname} style={styles.input} />
                 </View>
-                { isSurnameError && <Text style={{ textAlign: 'center', padding: 10, fontSize: 16, color: '#8B0000', fontFamily: 'MulishRegular' }}>Необходимо заполнить «Фамилия *»</Text> }
+                {isSurnameError && <Text style={{ textAlign: 'center', padding: 10, fontSize: 16, color: '#8B0000', fontFamily: 'MulishRegular' }}>Необходимо заполнить «Фамилия *»</Text>}
 
                 <View style={[styles.field, { flexDirection: 'row', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }]}>
                     <Text style={styles.fieldTitle}>Пол *</Text>
                     <TextInput style={[styles.input, { width: 100 }]}>{sex}</TextInput>
                     <TouchableOpacity onPress={() => setShowSex(!isShowSex)}>
-                        <MaterialIcons name='arrow-drop-down' size={24} color="#231F20"/>
+                        <MaterialIcons name='arrow-drop-down' size={24} color="#231F20" />
                     </TouchableOpacity>
                 </View>
-                { isShowSex && (
+                {isShowSex && (
                     <View style={{ backgroundColor: '#FFF', width: '100%', padding: 12 }}>
                         <TouchableOpacity onPress={() => setSex('Мужской')}>
                             <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, margin: 4 }}>Мужской</Text>
@@ -221,16 +212,16 @@ function Registration({ changeMethod }) {
                             <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, margin: 4 }}>Женский</Text>
                         </TouchableOpacity>
                     </View>
-                ) }
+                )}
 
                 <View style={[styles.field, { flexDirection: 'row', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }]}>
                     <Text style={styles.fieldTitle}>Дата рождения *</Text>
-                    <Text style={[styles.input, { width: 90 }]}>{ selectedDate ? formatDate(selectedDate) : 'дд.мм.гггг' }</Text>
+                    <Text style={[styles.input, { width: 90 }]}>{selectedDate ? formatDate(selectedDate) : 'дд.мм.гггг'}</Text>
                     <TouchableOpacity onPress={showDatePicker}>
-                        <FontAwesome5 name='calendar-alt' size={16} color="#231F20"/>
+                        <FontAwesome5 name='calendar-alt' size={16} color="#231F20" />
                     </TouchableOpacity>
                 </View>
-                { isDateError && <Text style={{ textAlign: 'center', padding: 10, fontSize: 16, color: '#8B0000', fontFamily: 'MulishRegular' }}>Необходимо заполнить «Дата рождения *»</Text> }
+                {isDateError && <Text style={{ textAlign: 'center', padding: 10, fontSize: 16, color: '#8B0000', fontFamily: 'MulishRegular' }}>Необходимо заполнить «Дата рождения *»</Text>}
 
                 <DateTimePickerModal
                     isVisible={isDatePickerVisible}
@@ -242,10 +233,10 @@ function Registration({ changeMethod }) {
                     <Text style={styles.fieldTitle}>Ваш город *</Text>
                     <TextInput style={[styles.input, { width: 150 }]}>{city}</TextInput>
                     <TouchableOpacity onPress={() => setShowCity(!isShowCity)}>
-                        <MaterialIcons name='arrow-drop-down' size={24} color="#231F20"/>
+                        <MaterialIcons name='arrow-drop-down' size={24} color="#231F20" />
                     </TouchableOpacity>
                 </View>
-                { isShowCity && (
+                {isShowCity && (
                     <View style={{ backgroundColor: '#FFF', width: '100%', padding: 12 }}>
                         <TouchableOpacity onPress={() => setCity('Нур-Султан')}>
                             <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, margin: 4 }}>Нур-Султан</Text>
@@ -293,19 +284,19 @@ function Registration({ changeMethod }) {
                             <Text style={{ fontFamily: 'MulishMedium', fontSize: 16, margin: 4 }}>Кызылорда</Text>
                         </TouchableOpacity>
                     </View>
-                ) }
+                )}
 
                 <View style={styles.field}>
                     <Text style={styles.fieldTitle}>Адрес *</Text>
-                    <TextInput value={address} onChangeText={onChangeAddress} style={styles.input}/>
+                    <TextInput value={address} onChangeText={onChangeAddress} style={styles.input} />
                 </View>
-                { isLocationError && <Text style={{ textAlign: 'center', padding: 10, fontSize: 16, color: '#8B0000', fontFamily: 'MulishRegular' }}>Необходимо заполнить «Адрес *»</Text> }
+                {isLocationError && <Text style={{ textAlign: 'center', padding: 10, fontSize: 16, color: '#8B0000', fontFamily: 'MulishRegular' }}>Необходимо заполнить «Адрес *»</Text>}
 
             </ScrollView>
             <Text style={[styles.agree, { textAlign: 'left', marginBottom: 12, marginTop: 12 }]}>Нажимая “Отправить”, вы соглашаетесь с <Text style={{ textDecorationLine: 'underline', color: '#231F20' }}>пользовательским соглашением</Text> и даёте согласие на <Text style={{ textDecorationLine: 'underline', color: '#231F20' }}>обработку персональных данных</Text></Text>
             <View style={styles.checkboxContainer}>
                 <TouchableOpacity onPress={() => setIsAgree(!isAgree)} style={styles.checkbox}>
-                    { isAgree && <Ionicons name="checkmark" size={20} color="black" />  }
+                    {isAgree && <Ionicons name="checkmark" size={20} color="black" />}
                 </TouchableOpacity>
                 <Text style={styles.checkboxTitle}>Получать новости и обновления</Text>
             </View>

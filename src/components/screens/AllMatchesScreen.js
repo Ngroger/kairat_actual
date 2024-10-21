@@ -64,7 +64,7 @@ function AllMatchesScreen() {
                 onNavigationStateChange={handleNavigationStateChange}
             />
             <StatusBar translucent={true} backgroundColor='transparent' />
-            <BottomTabs zIndex={0} position="relative"/>
+            <BottomTabs zIndex={0} position="relative" />
         </View>
     );
 }

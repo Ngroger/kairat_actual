@@ -33,7 +33,6 @@ function SubscriptionScreen() {
 
     const loadCurrentLanguage = async () => {
         const selectedLanguage = await loadLanguage();
-        console.log("lang all matches:", selectedLanguage);
         if (selectedLanguage) {
             i18next.changeLanguage(selectedLanguage);
         }
@@ -63,10 +62,10 @@ function SubscriptionScreen() {
     useEffect(() => {
         reloadWebView();
     }, []);
-    
+
     return (
         <View style={{ width: '100%', height: '100%' }}>
-            <Navbar title="АБОНЕМЕНТЫ"/>
+            <Navbar title="АБОНЕМЕНТЫ" />
             <WebView
                 key={reloadKey}
                 ref={webRef}
@@ -77,8 +76,8 @@ function SubscriptionScreen() {
                 sharedCookiesEnabled={true}
                 onNavigationStateChange={handleNavigationStateChange}
             />
-            <StatusBar translucent={true} backgroundColor='transparent'/>
-            <BottomTabs zIndex={0} position="relative"/>
+            <StatusBar translucent={true} backgroundColor='transparent' />
+            <BottomTabs zIndex={0} position="relative" />
         </View>
     )
 };

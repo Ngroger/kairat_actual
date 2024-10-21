@@ -18,7 +18,6 @@ const UserIdStorage = {
             // Convert userId to string before saving
             const userIdString = userId.toString(); // Ensure userId is a string
             await AsyncStorage.setItem('userId', userIdString);
-            console.log('UserId saved successfully.');
         } catch (error) {
             console.error('Error saving userId to AsyncStorage:', error);
         }
@@ -27,7 +26,6 @@ const UserIdStorage = {
     removeUserId: async () => {
         try {
             await AsyncStorage.removeItem('userId');
-            console.log('UserId removed from AsyncStorage.');
         } catch (error) {
             console.error('Error removing userId from AsyncStorage:', error);
         }

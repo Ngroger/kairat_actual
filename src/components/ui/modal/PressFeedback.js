@@ -66,7 +66,6 @@ function PressFeedback({ onClose }) {
         }
 
       } catch (error) {
-        console.log("send feedback error: ", error);
       }
     }
   };

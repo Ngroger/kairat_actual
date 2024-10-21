@@ -21,7 +21,6 @@ function ProfileScreen() {
             ? `https://fckairat.com/kz/user/profile`
             : `https://fckairat.com/user/profile`;
         setUrl(newUrl);
-        console.log("profile url: ", url, "profile lang: ",i18next.language);
     }, [i18next.language]);
 
     useEffect(() => {
@@ -32,7 +31,7 @@ function ProfileScreen() {
 
     return (
         <View style={{ width: '100%', height: '100%', backgroundColor: '#FFF' }}>
-            <Navbar title={t("your-cabinet")}/>
+            <Navbar title={t("your-cabinet")} />
             <WebView
                 key={reloadKey}
                 ref={webRef}
@@ -42,8 +41,8 @@ function ProfileScreen() {
                 source={{ uri: url }}
                 javaScriptEnabled={true}
             />
-            <StatusBar/>
-            <BottomTabs zIndex={0} position="relative"/>
+            <StatusBar />
+            <BottomTabs zIndex={0} position="relative" />
         </View>
     );
 }

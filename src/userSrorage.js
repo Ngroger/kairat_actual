@@ -18,7 +18,6 @@ const UserTokenStorage = {
             // Convert userToken to string before saving
             const userTokenString = userToken.toString(); // Ensure userToken is a string
             await AsyncStorage.setItem('userToken', userTokenString);
-            console.log('UserToken saved successfully.');
         } catch (error) {
             console.error('Error saving userToken to AsyncStorage:', error);
         }
@@ -27,7 +26,6 @@ const UserTokenStorage = {
     removeUserToken: async () => {
         try {
             await AsyncStorage.removeItem('userToken');
-            console.log('UserToken removed from AsyncStorage.');
         } catch (error) {
             console.error('Error removing userToken from AsyncStorage:', error);
         }

@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: '#FFF',
         display: 'flex',
-        paddingTop: 32,
+        paddingTop: 38,
     },
     selectLanguage: {
         flexDirection: 'row',
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         zIndex: 100,
-        
+
     },
     title: {
         fontSize: 12,
@@ -43,8 +43,7 @@ const styles = StyleSheet.create({
     },
     logo: {
         width: 100,
-        height: 100,
-        resizeMode: 'center'
+        height: 85,
     },
     background: {
         position: 'absolute',

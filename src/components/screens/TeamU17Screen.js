@@ -35,7 +35,6 @@ function TeamU17Screen() {
 
     const loadCurrentLanguage = async () => {
         const selectedLanguage = await loadLanguage();
-        console.log("lang all matches:", selectedLanguage);
         if (selectedLanguage) {
             i18next.changeLanguage(selectedLanguage);
         }
@@ -64,7 +63,7 @@ function TeamU17Screen() {
 
     return (
         <View style={{ width: '100%', height: '100%', backgroundColor: '#FFF' }}>
-            <Navbar title={t("main-title")}/>
+            <Navbar title={t("main-title")} />
             <WebView
                 key={reloadKey}
                 ref={webRef}
@@ -75,8 +74,8 @@ function TeamU17Screen() {
                 sharedCookiesEnabled={true}
                 onNavigationStateChange={handleNavigationStateChange}
             />
-            <StatusBar translucent={true} backgroundColor='transparent'/>
-            <BottomTabs zIndex={0} position="relative"/>
+            <StatusBar translucent={true} backgroundColor='transparent' />
+            <BottomTabs zIndex={0} position="relative" />
         </View>
     )
 };

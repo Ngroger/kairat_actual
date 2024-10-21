@@ -1,4 +1,4 @@
-import { View, Platform, BackHandler, Alert } from 'react-native';
+import { View, Platform, BackHandler, Alert, Text } from 'react-native';
 import Navbar from '../ui/Navbar';
 import styles from '../../styles/MainScreenStyle';
 import { useTranslation } from 'react-i18next';
@@ -56,17 +56,17 @@ function MainScreen() {
     };
 
     return (
-        <View style={{ width: '100%', height: '100%', position: 'relative' }}>
+        <View style={{ width: '100%', height: '100%', position: 'relative', backgroundColor: '#FFF' }}>
             <Navbar title={t("main-title")} />
             <WebView
                 key={reloadKey}
                 ref={webRef}
-                style={[styles.container, { marginTop: 100 }]}
+                style={[styles.container, { marginTop: 120 }]}
                 source={{ uri: url }}
                 onNavigationStateChange={handleNavigationStateChange}
             />
             <StatusBar translucent={true} backgroundColor='transparent' />
-            <BottomTabs position="relative" zIndex={0}/>
+            <BottomTabs position="relative" zIndex={0} />
         </View>
     );
 }

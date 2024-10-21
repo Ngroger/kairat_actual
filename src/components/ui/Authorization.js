@@ -12,7 +12,6 @@ function Authorization({ changeMethod }) {
     const navigation = useNavigation();
 
     const auth = async () => {
-        console.log('reg')
         const data = {
             login: email,
             password: password
@@ -26,14 +25,11 @@ function Authorization({ changeMethod }) {
                 },
                 body: JSON.stringify(data)
             });
-    
+
             if (response.ok) {
-                console.log('response.ok');
                 const responseData = await response.json();
                 if (responseData.success) {
-                    console.log(responseData.bearer_token);
                     await UserStorage.saveUserToken(responseData.bearer_token);
-                    console.log('User info from UserStorage:', userInfoFromStorage);
                     navigation.navigate('ProfilScreen');
                 }
             } else {
@@ -49,13 +45,13 @@ function Authorization({ changeMethod }) {
             <Text style={[styles.title, { marginLeft: 0, marginTop: 10 }]}>Авторизация</Text>
             <View style={styles.field}>
                 <Text style={styles.fieldTitle}>Email</Text>
-                <TextInput value={email} onChangeText={onChangeEmail} style={styles.input}/>
+                <TextInput value={email} onChangeText={onChangeEmail} style={styles.input} />
             </View>
             <View style={[styles.field, { flexDirection: 'row', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }]}>
                 <Text style={styles.fieldTitle}>Пароль</Text>
-                <TextInput value={password} onChangeText={onChangePassword} style={[styles.input, { width: 180 }]} secureTextEntry={isShowPassword}/>
+                <TextInput value={password} onChangeText={onChangePassword} style={[styles.input, { width: 180 }]} secureTextEntry={isShowPassword} />
                 <TouchableOpacity onPress={() => setIsShowPassword(!isShowPassword)}>
-                    <Feather name={ isShowPassword ? "eye" : "eye-off" } size={24} color="#231F20"/>
+                    <Feather name={isShowPassword ? "eye" : "eye-off"} size={24} color="#231F20" />
                 </TouchableOpacity>
             </View>
             <View style={styles.buttonContainer}>
@@ -73,10 +69,10 @@ function Authorization({ changeMethod }) {
             <View style={styles.wayContainer}>
                 <View style={{ flexDirection: 'row', display: 'flex', alignItems: 'center' }}>
                     <TouchableOpacity style={styles.accountContainer}>
-                        <Image style={{ width: 20, height: 20, resizeMode: 'contain' }} source={require('../../img/icons/Google.png')}/>
+                        <Image style={{ width: 20, height: 20, resizeMode: 'contain' }} source={require('../../img/icons/Google.png')} />
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.accountContainer, { backgroundColor: '#FC3F1D', borderWidth: 0, marginLeft: 10 }]}>
-                        <Image style={{ width: 20, height: 20, resizeMode: 'contain' }} source={require('../../img/icons/Yandex.png')}/>
+                        <Image style={{ width: 20, height: 20, resizeMode: 'contain' }} source={require('../../img/icons/Yandex.png')} />
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.accountContainer, { borderColor: '#231F20', marginLeft: 10 }]}>
                         <AntDesign name="apple1" size={20} color="#231F20" />
@@ -85,7 +81,7 @@ function Authorization({ changeMethod }) {
                         <FontAwesome6 name="vk" size={20} color="#FFF" />
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.accountContainer, { backgroundColor: '#1877F2', borderWidth: 0, marginLeft: 10 }]}>
-                        <FontAwesome5  name="facebook" size={20} color="#FFF" />
+                        <FontAwesome5 name="facebook" size={20} color="#FFF" />
                     </TouchableOpacity>
                 </View>
             </View>

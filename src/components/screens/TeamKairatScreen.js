@@ -23,9 +23,8 @@ function TeamKairatScreen() {
     useEffect(() => {
         const newUrl = i18next.language === 'kz'
             ? `https://fckairat.com/kz/team/${slug + '-2'}`
-            : `https://fckairat.com/team/${slug}` ;
+            : `https://fckairat.com/team/${slug}`;
         setUrl(newUrl);
-        console.log("url: ", url, "lang: ", i18next.language);
     }, [i18next.language, slug]);
 
     useEffect(() => {
@@ -57,7 +56,7 @@ function TeamKairatScreen() {
 
     return (
         <View style={{ width: '100%', height: '100%', backgroundColor: '#FFF' }}>
-            <Navbar title={t("main-title")}/>
+            <Navbar title={t("main-title")} />
             <WebView
                 key={reloadKey}
                 ref={webRef}
@@ -65,8 +64,8 @@ function TeamKairatScreen() {
                 source={{ uri: url }}
                 onNavigationStateChange={handleNavigationStateChange}
             />
-            <StatusBar translucent={true} backgroundColor='transparent'/>
-            <BottomTabs zIndex={0} position="relative"/>
+            <StatusBar translucent={true} backgroundColor='transparent' />
+            <BottomTabs zIndex={0} position="relative" />
         </View>
     )
 };
