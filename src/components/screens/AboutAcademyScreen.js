@@ -185,7 +185,7 @@ function AboutAcademyScreen() {
                         <View style={{ marginLeft: 24 }}>
                             <View style={{ width: 251, height: 240, backgroundColor: '#D9D9D9', justifyContent: 'center', alignItems: 'center' }}>
                                 <Image source={require('../../img/Group53.png')} style={{ position: 'absolute', zIndex: -10, width: '100%', height: '100%', resizeMode: 'cover' }} />
-                                <Image style={{ resizeMode: 'center', position: 'absolute', zIndex: 20, borderWidth: 1, width: 160, height: 193, bottom: 0 }} source={require('../../img/Rukovodstvo1.png')} />
+                                <Image resizeMode="contain" style={{ position: 'absolute', zIndex: 20, borderWidth: 1, width: 160, height: 193, bottom: 0 }} source={require('../../img/Rukovodstvo1.png')} />
                             </View>
                             <Text style={{ fontSize: 16, fontFamily: 'MulishBlack', padding: 12, width: '100%', borderBottomColor: '#FECC01', borderBottomWidth: 4 }}>{t("club-management.one.name")}</Text>
 
@@ -194,7 +194,7 @@ function AboutAcademyScreen() {
                         <View style={{ marginLeft: 24 }}>
                             <View style={{ width: 251, height: 240, backgroundColor: '#D9D9D9', justifyContent: 'center', alignItems: 'center' }}>
                                 <Image source={require('../../img/Group53.png')} style={{ position: 'absolute', zIndex: -10, width: '100%', height: '100%', resizeMode: 'cover' }} />
-                                <Image style={{ resizeMode: 'center', position: 'absolute', zIndex: 20, borderWidth: 1, width: 160, height: 193, bottom: 0 }} source={require('../../img/Rukovodstvo2.png')} />
+                                <Image resizeMode="contain" style={{ position: 'absolute', zIndex: 20, borderWidth: 1, width: 160, height: 193, bottom: 0 }} source={require('../../img/Rukovodstvo2.png')} />
                             </View>
                             <Text style={{ fontSize: 16, fontFamily: 'MulishBlack', padding: 12, width: '100%', borderBottomColor: '#FECC01', borderBottomWidth: 4 }}>{t("club-management.two.name")}</Text>
                             <Text style={{ fontFamily: 'MulishRegular', padding: 12, fontSize: 16, width: 200 }}>{t("club-management.two.role")}</Text>
@@ -202,7 +202,7 @@ function AboutAcademyScreen() {
                         <View style={{ marginLeft: 24 }}>
                             <View style={{ width: 251, height: 240, backgroundColor: '#D9D9D9', justifyContent: 'center', alignItems: 'center' }}>
                                 <Image source={require('../../img/Group53.png')} style={{ position: 'absolute', zIndex: -10, width: '100%', height: '100%', resizeMode: 'cover' }} />
-                                <Image style={{ resizeMode: 'center', position: 'absolute', zIndex: 20, borderWidth: 1, width: 160, height: 193, bottom: 0 }} source={require('../../img/Rukovodstvo3.png')} />
+                                <Image resizeMode="contain" style={{ position: 'absolute', zIndex: 20, borderWidth: 1, width: 160, height: 193, bottom: 0 }} source={require('../../img/Rukovodstvo3.png')} />
                             </View>
                             <Text style={{ fontSize: 16, fontFamily: 'MulishBlack', padding: 12, width: '100%', borderBottomColor: '#FECC01', borderBottomWidth: 4 }}>{t("club-management.three.name")}</Text>
                             <Text style={{ fontFamily: 'MulishRegular', padding: 12, fontSize: 16, width: 200 }}>{t("club-management.three.role")}</Text>
@@ -210,7 +210,7 @@ function AboutAcademyScreen() {
                         <View style={{ marginLeft: 24, marginRight: 24 }}>
                             <View style={{ width: 251, height: 240, backgroundColor: '#D9D9D9', justifyContent: 'center', alignItems: 'center' }}>
                                 <Image source={require('../../img/Group53.png')} style={{ position: 'absolute', zIndex: -10, width: '100%', height: '100%', resizeMode: 'cover' }} />
-                                <Image style={{ resizeMode: 'center', position: 'absolute', zIndex: 20, borderWidth: 1, width: 160, height: 193, bottom: 0 }} source={require('../../img/Rukovodstvo4.png')} />
+                                <Image resizeMode="contain" style={{ position: 'absolute', zIndex: 20, borderWidth: 1, width: 160, height: 193, bottom: 0 }} source={require('../../img/Rukovodstvo4.png')} />
                             </View>
                             <Text style={{ fontSize: 16, fontFamily: 'MulishBlack', padding: 12, width: '100%', borderBottomColor: '#FECC01', borderBottomWidth: 4 }}>{t("club-management.four.name")}</Text>
                             <Text style={{ fontFamily: 'MulishRegular', padding: 12, fontSize: 16, width: 200 }}>{t("club-management.four.role")}</Text>
