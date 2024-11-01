@@ -8,7 +8,6 @@ import i18next from '../../i18next';
 import { StatusBar } from 'expo-status-bar';
 import { useWebView } from '../../context/WebViewContext';
 import BottomTabs from '../ui/BottomTabs';
-import { saveLanguage, loadLanguage } from '../../store/LanguageStore';
 
 function MainScreen() {
     const { t } = useTranslation();

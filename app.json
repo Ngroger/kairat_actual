@@ -2,7 +2,7 @@
   "expo": {
     "name": "ФК Кайрат",
     "slug": "kairat2",
-    "version": "1.0.3",
+    "version": "1.0.6",
     "orientation": "portrait",
     "platforms": [
       "ios",
@@ -18,7 +18,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.bogdandev3444456.kairat2",
-      "buildNumber": "1.0.0",
+      "buildNumber": "1.0.6",
       "icon": "./assets/icon.png",
       "infoPlist": {
         "NSCameraUsageDescription": "This app needs access to your camera to take photos.",
@@ -71,7 +71,7 @@
       "permissions": [
         "CAMERA"
       ],
-      "versionCode": 4,
+      "versionCode": 6,
       "package": "com.bogdandev3444456.kairat2"
     },
     "web": {

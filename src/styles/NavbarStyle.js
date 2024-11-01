@@ -1,6 +1,6 @@
-import { StyleSheet } from "react-native";
+import { ScaledSheet } from 'react-native-size-matters';
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     buttonsContainer: {
         flexDirection: 'row',
         width: '100%',
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 12
     },
     button: {
-        fontSize: 20,
+        fontSize: '14@s',
         fontFamily: 'MulishBlack',
         letterSpacing: 1
     },

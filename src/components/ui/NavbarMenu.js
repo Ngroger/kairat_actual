@@ -46,11 +46,19 @@ function NavbarMenu({ onClose }) {
                     </TouchableOpacity>
                     <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', marginTop: 16, marginLeft: 25 }} onPress={() => toggleOpenAccordion('Новости')}>
                         {openAccordion === 'Новости' && (
-                            <Svg style={{ position: 'absolute', zIndex: -10 }} xmlns="http://www.w3.org/2000/svg" width={146} height={30} viewBox="0 0 146 30" fill="none">
+                            <Svg
+                                style={{ zIndex: -10, position: 'absolute' }}
+                                xmlns="http://www.w3.org/2000/svg"
+                                width={146}
+                                height={30}
+                                viewBox="0 0 146 30"
+                                fill="none"
+                                preserveAspectRatio="xMidYMid slice"
+                            >
                                 <Path d="M16.0745 6.9782e-06L145.423 0L128 30H0L16.0745 6.9782e-06Z" fill="white" />
                             </Svg>
                         )}
-                        <Text style={styles.button}>{t("news-title")}</Text>
+                        <Text style={[styles.button]}>{t("news-title")}</Text>
                     </TouchableOpacity>
                     {openAccordion === 'Новости' && (
                         <View style={styles.additionalMenu}>

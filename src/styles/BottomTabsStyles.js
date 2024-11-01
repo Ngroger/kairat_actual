@@ -1,13 +1,14 @@
-import { StyleSheet } from 'react-native';
+import { ScaledSheet } from 'react-native-size-matters';
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     container: {
         width: '100%',
         backgroundColor: '#FFF',
         justifyContent: 'space-between',
         flexDirection: 'row',
         display: 'flex',
-        padding: 12,
+        padding: 16,
+        paddingHorizontal: 24,
         position: 'absolute',
         zIndex: 100000,
         bottom: 0,
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     tabText: {
-        fontSize: 16
+        fontSize: '16@s'
     }
 });
 

@@ -1,21 +1,17 @@
-import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { Text, View, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import styles from '../../styles/NavbarStyle';
-import { AntDesign, Ionicons, FontAwesome5, FontAwesome6, Feather, MaterialIcons, Entypo } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import RegistrationModal from '../ux/modal/RegistrationModal';
 import NavbarMenu from './NavbarMenu';
 import { Svg, Path, G } from 'react-native-svg';
-import { useTranslation } from 'react-i18next';
 import i18next from '../../i18next'
-import { saveLanguage, loadLanguage } from '../../store/LanguageStore';
 import { useWebView } from '../../context/WebViewContext';
 
 function Navbar({ title, activityApp }) {
     const [isOpenRegistration, setIsOpenRegistration] = useState(false);
     const [isOpenMenu, setOpenMenu] = useState(false);
     const navigation = useNavigation();
-    const { t } = useTranslation(); // Шаг 2: получение функции перевода и текущего выбранного языка
     const [isShowLanguageSelector, setIsShowLanguageSelector] = useState(false);
     const [language, setLanguage] = useState();
     const { reloadWebView } = useWebView();
@@ -40,7 +36,7 @@ function Navbar({ title, activityApp }) {
     }
 
     return (
-        <View style={isOpenMenu || isOpenRegistration === true ? { position: 'absolute', zIndex: 100000, width: '100%', height: '100%' } : { position: 'absolute', zIndex: 100000, width: '100%' }}>
+        <SafeAreaView style={isOpenMenu || isOpenRegistration === true ? { position: 'absolute', zIndex: 100000, width: '100%', height: '100%' } : { position: 'absolute', zIndex: 100000, width: '100%' }}>
             <View>
                 <View style={styles.buttonsContainer}>
                     <TouchableOpacity onPress={() => navigation.navigate('Section')} style={{ marginLeft: 70 }}>
@@ -120,7 +116,7 @@ function Navbar({ title, activityApp }) {
                 </View>
             </View>
             {isOpenMenu && <NavbarMenu onClose={toggleOpenMenu} />}
-        </View>
+        </SafeAreaView>
     )
 };
 
