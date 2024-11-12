@@ -254,6 +254,9 @@ function NavbarMenu({ onClose }) {
                             <TouchableOpacity onPress={() => { navigation.navigate("ShopScreen", { slug: "category/21" }); onClose(); }}>
                                 <Text style={styles.additionalButton}>{t("shop-cat.cat-9")}</Text>
                             </TouchableOpacity>
+                            <TouchableOpacity onPress={() => { navigation.navigate("ShopScreen", { slug: "category/21" }); onClose(); }}>
+                                <Text style={styles.additionalButton}>{t("shop-cat.my-orders")}</Text>
+                            </TouchableOpacity>
                         </ScrollView>
                     )}
                 </View>

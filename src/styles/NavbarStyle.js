@@ -10,7 +10,7 @@ const styles = ScaledSheet.create({
         flexDirection: 'row',
         backgroundColor: '#FFF',
         display: 'flex',
-        paddingTop: 38,
+        paddingTop: '24@msr',
     },
     selectLanguage: {
         flexDirection: 'row',

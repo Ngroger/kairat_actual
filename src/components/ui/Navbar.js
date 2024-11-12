@@ -38,7 +38,7 @@ function Navbar({ title, activityApp }) {
     return (
         <SafeAreaView style={isOpenMenu || isOpenRegistration === true ? { position: 'absolute', zIndex: 100000, width: '100%', height: '100%' } : { position: 'absolute', zIndex: 100000, width: '100%' }}>
             <View>
-                <View style={styles.buttonsContainer}>
+                <SafeAreaView style={styles.buttonsContainer}>
                     <TouchableOpacity onPress={() => navigation.navigate('Section')} style={{ marginLeft: 70 }}>
                         <Svg xmlns="http://www.w3.org/2000/svg" width={25} height={25} viewBox="0 0 20 20" fill="none">
                             <Path d="M12.8245 4.34199L13.9995 6.69199C14.1578 7.01699 14.5828 7.32532 14.9411 7.39198L17.0661 7.74198C18.4245 7.96698 18.7411 8.95032 17.7661 9.93365L16.1078 11.592C15.8328 11.867 15.6745 12.4087 15.7661 12.8003L16.2411 14.8503C16.6161 16.467 15.7495 17.1003 14.3245 16.2503L12.3328 15.067C11.9745 14.8503 11.3745 14.8503 11.0161 15.067L9.02446 16.2503C7.59946 17.092 6.7328 16.467 7.1078 14.8503L7.58281 12.8003C7.67448 12.417 7.51614 11.8753 7.24114 11.592L5.58281 9.93365C4.60781 8.95865 4.92448 7.97531 6.28281 7.74198L8.4078 7.39198C8.76613 7.33365 9.19114 7.01699 9.34947 6.69199L10.5245 4.34199C11.1495 3.06699 12.1828 3.06699 12.8245 4.34199Z" stroke="#231F20" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
@@ -89,7 +89,7 @@ function Navbar({ title, activityApp }) {
                             </TouchableOpacity>
                         </View>
                     </View>
-                </View>
+                </SafeAreaView>
                 <View style={styles.titleContainer}>
                     {isShowLanguageSelector && (
                         <View style={{ backgroundColor: '#FFF', width: '11%', position: 'absolute', zIndex: 100, top: -10, right: 35 }}>
