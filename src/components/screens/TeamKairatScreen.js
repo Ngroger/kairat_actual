@@ -20,11 +20,14 @@ function TeamKairatScreen() {
     const [canGoBack, setCanGoBack] = useState(false);
     const [url, setUrl] = useState();
 
+    console.log("slug: ", slug);
+
     useEffect(() => {
         const newUrl = i18next.language === 'kz'
-            ? `https://fckairat.com/kz/team/${slug + '-2'}`
+            ? `https://fckairat.com/kz/team/${slug}`
             : `https://fckairat.com/team/${slug}`;
         setUrl(newUrl);
+        console.log("newUrl: ", newUrl);
     }, [i18next.language, slug]);
 
     useEffect(() => {

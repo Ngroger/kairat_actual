@@ -4,11 +4,11 @@ const styles = ScaledSheet.create({
     container: {
         width: '100%',
         backgroundColor: '#FFF',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         flexDirection: 'row',
         display: 'flex',
-        padding: '16@msr',
-        paddingHorizontal: '24@msr',
+        padding: '12@msr',
+        paddingHorizontal: '20@msr',
         position: 'absolute',
         zIndex: 100000,
         bottom: 0,
@@ -19,7 +19,7 @@ const styles = ScaledSheet.create({
         alignItems: 'center'
     },
     tabText: {
-        fontSize: '16@s'
+        fontSize: '14@s'
     }
 });
 

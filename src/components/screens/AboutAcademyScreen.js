@@ -21,12 +21,14 @@ function AboutAcademyScreen() {
     const [isPressFeedback, setisPressFeedback] = useState(false);
     const { t } = useTranslation();
 
-
     useEffect(() => {
         if (scrollToOffset) {
-            scrollViewRef.current.scrollTo({ y: scrollToOffset, animated: true });
+            setTimeout(() => {
+                scrollViewRef.current?.scrollTo({ y: scrollToOffset, animated: true });
+            }, 100); // Установите задержку в 100 мс или больше, если нужно
         }
     }, [scrollToOffset]);
+
 
     const scrollViewRef = useRef();
 
@@ -181,7 +183,7 @@ function AboutAcademyScreen() {
                         </Svg>
                         <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20, marginLeft: 10 }}>{t("club-management.title").toUpperCase()}</Text>
                     </View>
-                    <ScrollView horizontal>
+                    <ScrollView horizontal={true}>
                         <View style={{ marginLeft: 24 }}>
                             <View style={{ width: 251, height: 240, backgroundColor: '#D9D9D9', justifyContent: 'center', alignItems: 'center' }}>
                                 <Image source={require('../../img/Group53.png')} style={{ position: 'absolute', zIndex: -10, width: '100%', height: '100%', resizeMode: 'cover' }} />
@@ -256,7 +258,7 @@ function AboutAcademyScreen() {
                     <Text style={{ fontFamily: 'MulishExtraBold', fontSize: 20 }}>{t("reglament")}</Text>
                 </View>
                 {t("accreditation").split('\n').map((line, index) => (
-                    <Text style={{ fontFamily: 'MulishRegular', fontSize: 16, paddingHorizontal: 24, marginTop: 12 }}>
+                    <Text key={index} style={{ fontFamily: 'MulishRegular', fontSize: 16, paddingHorizontal: 24, marginTop: 12 }}>
                         {line}
                     </Text>
                 ))}

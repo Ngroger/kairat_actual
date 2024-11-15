@@ -149,16 +149,16 @@ function NavbarMenu({ onClose }) {
                     </TouchableOpacity>
                     {openAccordion === 'Команды' && (
                         <View style={styles.additionalMenu}>
-                            <TouchableOpacity onPress={() => { navigation.navigate('TeamKairatScreen', { slug: 'osnovnoj-sostav-fk-kajrat' }); onClose(); }}>
+                            <TouchableOpacity onPress={() => { navigation.navigate('TeamKairatScreen', { slug: '76' }); onClose(); }}>
                                 <Text style={styles.additionalButton}>{t('kairat')}</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => { navigation.navigate('TeamKairatScreen', { slug: 'osnovnoy-sostav-fk-kayrat-zhastar' }); onClose(); }}>
+                            <TouchableOpacity onPress={() => { navigation.navigate('TeamKairatScreen', { slug: '77' }); onClose(); }}>
                                 <Text style={styles.additionalButton}>{t('kairat-jastar')}</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => { navigation.navigate('TeamKairatScreen', { slug: 'kajrat-u-18' }); onClose(); }}>
+                            <TouchableOpacity onPress={() => { navigation.navigate('TeamKairatScreen', { slug: '78' }); onClose(); }}>
                                 <Text style={styles.additionalButton}>{t('kairat-u18')}</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => { navigation.navigate('TeamKairatScreen', { slug: 'kajrat-u-17' }); onClose(); }}>
+                            <TouchableOpacity onPress={() => { navigation.navigate('TeamKairatScreen', { slug: '178' }); onClose(); }}>
                                 <Text style={styles.additionalButton}>{t('kairat-u17')}</Text>
                             </TouchableOpacity>
                         </View>
