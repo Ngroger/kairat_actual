@@ -91,8 +91,8 @@ android {
         applicationId 'com.bogdandev3444456.kairat2'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 9
-        versionName "1.0.9"
+        versionCode 13
+        versionName "1.1.3"
     }
     signingConfigs {
         debug {
@@ -149,6 +149,7 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";
     def isWebpEnabled = (findProperty('expo.webp.enabled') ?: "") == "true";
     def isWebpAnimatedEnabled = (findProperty('expo.webp.animated') ?: "") == "true";
@@ -173,3 +174,5 @@ dependencies {
         implementation jscFlavor
     }
 }
+
+apply plugin: 'com.google.gms.google-services'

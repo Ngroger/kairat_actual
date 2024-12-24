@@ -38,7 +38,7 @@ async function registerForPushNotificationsAsync() {
 
     if (Platform.OS === 'android') {
         await Notifications.setNotificationChannelAsync('myNotificationChannel', {
-            name: 'A channel is needed for the permissions prompt to appear',
+            name: 'default',
             importance: Notifications.AndroidImportance.MAX,
             vibrationPattern: [0, 250, 250, 250],
             lightColor: '#FF231F7C',
