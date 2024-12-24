@@ -42,13 +42,17 @@ function AcademyScreen() {
                 style={[styles.container, { backgroundColor: '#FFF', marginTop: 120 }]}
                 source={{ uri: url }}
                 injectedJavaScript={`
-                    const metaViewport = document.createElement('meta');
-                    metaViewport.name = 'viewport';
-                    metaViewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
-                    document.head.appendChild(metaViewport);
                     const style = document.createElement('style');
-                    style.innerHTML = '* { max-width: 100vw !important; overflow-x: hidden !important; } body { overflow-x: hidden; }';
-                    document.head.appendChild(style);
+                        style.innerHTML = \`
+                            body {
+                                overflow-x: hidden !important;
+                            }
+                            ::-webkit-scrollbar {
+                                display: none; /* Скрыть скроллбар */
+                            }
+                        \`;
+                        document.head.appendChild(style);
+                        true;
                 `}
 
                 javaScriptEnabled={true}

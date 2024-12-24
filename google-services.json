@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "937481641448",
+    "project_id": "kairat-33b93",
+    "storage_bucket": "kairat-33b93.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937481641448:android:482f0caf796898300c585d",
+        "android_client_info": {
+          "package_name": "com.bogdandev3444456.kairat2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoO4oPZ2x9YgDIEDQaEVDocEf6PzRP-uQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

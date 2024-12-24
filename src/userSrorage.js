@@ -29,6 +29,26 @@ const UserTokenStorage = {
         } catch (error) {
             console.error('Error removing userToken from AsyncStorage:', error);
         }
+    },
+
+    getIsNotificated: async () => {
+        try {
+            const isNotificated = await AsyncStorage.getItem('isNotificated');
+            return isNotificated === 'true'; // Convert from string 'true'/'false' to boolean
+        } catch (error) {
+            console.error('Error getting isNotificated from AsyncStorage:', error);
+            return false; // Default value if there's an error
+        }
+    },
+
+    toggleIsNotificated: async () => {
+        try {
+            const isNotificated = await UserTokenStorage.getIsNotificated();
+            const newIsNotificated = !isNotificated; // Toggle the value
+            await AsyncStorage.setItem('isNotificated', newIsNotificated.toString()); // Save as string
+        } catch (error) {
+            console.error('Error toggling isNotificated in AsyncStorage:', error);
+        }
     }
 };
 

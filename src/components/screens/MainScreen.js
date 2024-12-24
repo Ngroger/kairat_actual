@@ -3,7 +3,7 @@ import Navbar from '../ui/Navbar';
 import styles from '../../styles/MainScreenStyle';
 import { useTranslation } from 'react-i18next';
 import { WebView } from 'react-native-webview';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import i18next from '../../i18next';
 import { StatusBar } from 'expo-status-bar';
 import { useWebView } from '../../context/WebViewContext';
@@ -11,7 +11,7 @@ import BottomTabs from '../ui/BottomTabs';
 
 function MainScreen() {
     const { t } = useTranslation();
-    const { reloadKey, webRef, reloadWebView } = useWebView();
+    const { reloadKey, webRef, reloadWebView, handleMessage } = useWebView();
     const [canGoBack, setCanGoBack] = useState(false);
 
     useEffect(() => {
@@ -62,7 +62,9 @@ function MainScreen() {
                 ref={webRef}
                 style={[styles.container, { marginTop: 120 }]}
                 source={{ uri: url }}
+                javaScriptEnabled={true}
                 onNavigationStateChange={handleNavigationStateChange}
+                onMessage={handleMessage}
             />
             <StatusBar translucent={true} backgroundColor='transparent' />
             <BottomTabs position="relative" zIndex={0} />
